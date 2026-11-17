@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — Book Heaven</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">✦</span>
+                Book <b>Heaven</b>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Головна</a>
+                <a href="catalog.html" class="active">Каталог</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="header-action" id="user-button" onclick="openLogin()">
+                    ♙ Увійти
+                </button>
+
+                <a href="favorites.html" class="header-action">
+                    ♡ Обране
+                    <span id="favorites-count">0</span>
+                </a>
+
+                <button class="header-action" onclick="window.location.href='cart.html'">
+                    🛒 Кошик
+                    <span id="cart-count">0</span>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+
+
+    <main class="catalog-layout">
+
+        <aside class="filters">
+
+            <section class="filter-section">
+                <span class="filter-title">Формат книги</span>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="format-filter" value="paper">
+                    Паперова книга
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="format-filter" value="ebook">
+                    Електронна книга
+                </label>
+            </section>
+
+
+            <section class="filter-section">
+                <span class="filter-title">Автор</span>
+
+                <input
+                    type="text"
+                    id="author-search"
+                    class="filter-search"
+                    placeholder="Введіть ім'я автора..."
+                >
+            </section>
+
+
+            <section class="filter-section">
+                <span class="filter-title">Мова книги</span>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="language-filter" value="uk">
+                    Українська
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="language-filter" value="en">
+                    Англійська
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="language-filter" value="es">
+                    Іспанська
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="language-filter" value="pl">
+                    Польська
+                </label>
+            </section>
+
+
+            <section class="filter-section">
+                <span class="filter-title">Видавництво</span>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="Vivat">
+                    Vivat
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="КСД">
+                    КСД
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="Ранок">
+                    Ранок
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="А-БА-БА-ГА-ЛА-МА-ГА">
+                    А-БА-БА-ГА-ЛА-МА-ГА
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="Оріон">
+                    Оріон
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="Грамота">
+                    Грамота
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" class="publisher-filter" value="Літера ЛТД">
+                    Літера ЛТД
+                </label>
+            </section>
+
+
+            <section class="filter-section">
+                <span class="filter-title">Ціна</span>
+
+                <div class="price-fields">
+                    <input
+                        type="number"
+                        id="price-min"
+                        class="price-input"
+                        placeholder="Від"
+                        min="0"
+                    >
+
+                    <span class="price-arrow">—</span>
+
+                    <input
+                        type="number"
+                        id="price-max"
+                        class="price-input"
+                        placeholder="До"
+                        min="0"
+                    >
+                </div>
+
+                <div class="price-caption">
+                    Вкажіть бажаний діапазон цін
+                </div>
+            </section>
+
+
+            <!-- КНОПКА СКИДАННЯ ФІЛЬТРІВ -->
+            <button type="button" id="reset-filters" class="reset-filters-button">
+                ↻ Скинути фільтри
+            </button>
+
+        </aside>
+
+
+        <section class="catalog-main">
+
+            <!-- КАТЕГОРІЇ КАТАЛОГУ -->
+            <div class="category-tabs">
+
+                <button class="category-tab active" data-category="all">
+                    Усі книги
+                </button>
+
+                <button class="category-tab" data-category="fiction">
+                    Художня література
+                </button>
+
+                <button class="category-tab" data-category="education">
+                    Навчальна
+                </button>
+
+                <button class="category-tab" data-category="children">
+                    Дитяча
+                </button>
+
+                <button class="category-tab" data-category="foreign">
+                    Іншомовна
+                </button>
+
+                <button class="category-tab" data-category="sets">
+                    Книжкові набори
+                </button>
+
+                <button class="category-tab" data-category="merch">
+                    Мерч
+                </button>
+
+            </div>
+
+
+            <div class="section-heading" style="text-align:left; margin-bottom:25px;">
+                <span class="eyebrow">ЗНАЙДИ СВОЮ ІСТОРІЮ</span>
+                <h1 class="catalog-heading">Каталог книг</h1>
+                <p>Обирай книги, які надихають, навчають та захоплюють.</p>
+            </div>
+
+
+            <div id="catalog-books" class="catalog-results"></div>
+
+        </section>
+
+    </main>
+
+
+    
+
+
+            <form id="register-form" onsubmit="registerUser(event)" hidden>
+
+                <label for="register-name">Ім'я</label>
+                <input id="register-name" type="text" required>
+
+                <label for="register-email">Електронна пошта</label>
+                <input id="register-email" type="email" required>
+
+                <label for="register-password">Пароль</label>
+                <input id="register-password" type="password" required>
+
+                <button type="submit" class="primary-button">
+                    Зареєструватися
+                </button>
+
+            </form>
+
+            <p class="form-switch">
+                Ще немає акаунта?
+                <button type="button" onclick="showRegister()">Реєстрація</button>
+            </p>
+
+        </div>
+    </div>
+
+
+    <div id="site-footer"></div>
+
+
+    <!-- ПІДКЛЮЧЕННЯ СКРИПТІВ -->
+    <script src="js/script.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/footer.js"></script>
+
+</body>
+</html>

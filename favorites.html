@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обране — Book Heaven</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">✦ Book <b>Heaven</b></a>
+
+        <nav class="main-nav">
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <!-- УВІЙТИ -->
+            <button class="header-action" id="user-button"
+                    onclick="openLogin()">
+                ♙ Увійти
+            </button>
+
+            <!-- ОБРАНЕ -->
+            <a href="favorites.html" class="header-action">
+                ♡ Обране <span id="favorites-count">0</span>
+            </a>
+
+            <!-- КОШИК -->
+            <a href="cart.html" class="header-action cart-page-link">
+                🛒 Кошик <span id="cart-count">0</span>
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<main class="cart-page">
+
+    <div class="cart-page-heading">
+        <span class="eyebrow">ТВОЯ ОСОБИСТА КОЛЕКЦІЯ</span>
+        <h1>Моє <span>обране</span></h1>
+        <p>Книжки, до яких хочеться повертатися.</p>
+    </div>
+
+    <section class="favorites-page-content">
+
+        <div class="cart-section-heading">
+            <h2>Збережені книжки</h2>
+            <a href="catalog.html">Знайти ще книги →</a>
+        </div>
+
+        <div id="favorites-page-items" class="book-grid"></div>
+
+    </section>
+
+</main>
+
+<!-- ПІДВАЛ САЙТУ -->
+<div id="site-footer"></div>
+
+<!-- JAVASCRIPT -->
+<script src="js/script.js"></script>
+<script src="js/favorites.js"></script>
+<script src="js/footer.js"></script>
+
+</body>
+</html>

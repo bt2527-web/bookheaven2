@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Heaven — книжковий магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+
+<header class="site-header">
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">✦</span>
+            Book <b>Heaven</b>
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Головна</a>
+            <a href="catalog.html" class="nav-link">Каталог</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button
+                class="header-action"
+                id="user-button"
+                onclick="openLogin()">
+                ♙ Увійти
+            </button>
+
+            <a href="favorites.html" class="header-action">
+                ♡ Обране
+                <span id="favorites-count">0</span>
+            </a>
+
+            <button
+                class="header-action"
+                onclick="window.location.href='cart.html'">
+                🛒 Кошик
+                <span id="cart-count">0</span>
+            </button>
+
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<!-- ГОЛОВНИЙ ФОТОБАНЕР -->
+<section class="hero hero-photo">
+
+    <div class="hero-copy">
+        <span class="eyebrow">ТВОЯ КНИЖКОВА ІСТОРІЯ ПОЧИНАЄТЬСЯ ТУТ</span>
+
+        <h1>Знайди історію,<br><span>у яку закохаєшся</span></h1>
+
+        <p>Від затишної класики до захопливих новинок — обирай книги для натхнення, відпочинку та нових відкриттів.</p>
+
+        <div class="hero-buttons">
+            <a href="#new" class="primary-button">Обрати книгу →</a>
+            <a href="#about" class="secondary-button">Про магазин</a>
+        </div>
+
+        <div class="hero-note">✦ Маленький світ великих історій</div>
+    </div>
+
+    <div class="hero-photo-area">
+        <img src="images/banner.jpg" alt="Книжковий світ Book Heaven">
+    </div>
+
+</section>
+
+<section class="quick-categories">
+    <a class="category-card category-sale" href="#promotions">
+        <span class="category-symbol">✧</span>
+        <span class="category-copy"><b>Акції</b><small>Особливі пропозиції</small></span>
+        <span class="category-arrow">↗</span>
+    </a>
+
+    <a class="category-card category-season" href="#seasonal">
+        <span class="category-symbol">☾</span>
+        <span class="category-copy"><b>Сезонна література</b><small>Книги під настрій</small></span>
+        <span class="category-arrow">↗</span>
+    </a>
+
+    <a class="category-card category-new" href="#new">
+        <span class="category-symbol">✦</span>
+        <span class="category-copy"><b>Новинки</b><small>Свіжі надходження</small></span>
+        <span class="category-arrow">↗</span>
+    </a>
+
+    <a class="category-card category-ebook" href="#ebooks">
+        <span class="category-symbol">▤</span>
+        <span class="category-copy"><b>Електронні книги</b><small>Читай будь-де</small></span>
+        <span class="category-arrow">↗</span>
+    </a>
+
+    <a class="category-card category-merch" href="catalog.html?type=merch">
+        <span class="category-symbol">✿</span>
+        <span class="category-copy">
+            <b>Мерч</b>
+            <small>Трохи книжкової магії</small>
+        </span>
+        <span class="category-arrow">↗</span>
+    </a>
+</section>
+
+<section class="search-section" id="catalog">
+    <div class="section-heading">
+        <span class="eyebrow">ЗРУЧНИЙ ПОШУК</span>
+        <h2>Яку історію шукаєш <span>сьогодні?</span></h2>
+        <p>Введи назву книги або ім’я автора.</p>
+    </div>
+
+    <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="search" type="search" placeholder="Наприклад, «Маленький принц»...">
+        <button onclick="searchBooks()">Знайти книгу</button>
+    </div>
+
+    <div class="search-results book-grid" id="search-results"></div>
+</section>
+
+<section class="feature-section" id="promotions">
+    <div class="feature-banner">
+        <div class="feature-copy">
+            <span class="eyebrow">ТВОЄ НАСТУПНЕ ЧИТАННЯ</span>
+            <h2>Трохи магії<br>на кожній сторінці</h2>
+            <p>Зроби паузу, влаштуйся зручніше та дозволь хорошій історії захопити тебе.</p>
+            <a href="#sale-books-section" class="feature-link">Переглянути акції →</a>
+        </div>
+        <div class="feature-art">
+            <div class="feature-moon">☾</div>
+            <div class="feature-spark">✧</div>
+            <div class="feature-book-shape"></div>
+        </div>
+    </div>
+</section>
+
+<!-- АКЦІЙНІ КНИГИ -->
+<section class="books-section" id="sale-books-section">
+    <div class="section-title-row">
+        <div>
+            <span class="eyebrow">ОБМЕЖЕНІ ПРОПОЗИЦІЇ</span>
+            <h2>Акційні <span>пропозиції</span></h2>
+        </div>
+        <span class="section-note">6 книжок зі знижками</span>
+    </div>
+
+    <div class="book-grid" id="sale-books"></div>
+</section>
+
+<section class="books-section" id="seasonal">
+    <div class="section-title-row">
+        <div>
+            <span class="eyebrow">ДЛЯ ОСОБЛИВОГО НАСТРОЮ</span>
+            <h2>Сезонна <span>література</span></h2>
+        </div>
+        <span class="section-note">Добірка оновлюється</span>
+    </div>
+
+    <div class="seasonal-panel">
+        <div class="seasonal-icon">☾</div>
+        <div>
+            <h3>Затишні історії для твого сезону</h3>
+            <p>Тут з’являтимуться тематичні книжкові добірки. А поки відкрий наші новинки та знайди наступну улюблену книгу.</p>
+        </div>
+        <a href="#new" class="text-link">До новинок ↗</a>
+    </div>
+</section>
+
+<section class="books-section" id="new">
+    <div class="section-title-row">
+        <div>
+            <span class="eyebrow">ТЕ, НА ЩО ВАРТО ЗВЕРНУТИ УВАГУ</span>
+            <h2>Книжкові <span>новинки</span></h2>
+        </div>
+        <span class="section-note">Добірка Book Heaven</span>
+    </div>
+    <div class="book-grid" id="new-books"></div>
+</section>
+
+<section class="books-section ebooks-section" id="ebooks">
+    <div class="section-title-row">
+        <div>
+            <span class="eyebrow">ТВОЯ БІБЛІОТЕКА ЗАВЖДИ ПОРУЧ</span>
+            <h2>Електронні <span>книги</span></h2>
+        </div>
+        <span class="section-note">Читай у зручному форматі</span>
+    </div>
+    <div class="book-grid" id="ebook-books"></div>
+</section>
+
+<!-- ПРО МАГАЗИН -->
+<section class="about-section" id="about">
+    <div class="about-mark">✦</div>
+
+    <div class="about-content">
+        <span class="eyebrow">ТРОХИ ПРО НАС</span>
+
+        <h2>Книги, що знаходять <span>своїх людей</span></h2>
+
+        <p>
+            У світі, де кожен день наповнений справами, поспіхом і нескінченним потоком інформації, особливо важливо знаходити час для себе та маленьких задоволень. Саме книги допомагають зупинитися на мить, відволіктися від буденності й поринути в інші світи. <b>Book Heaven</b> — це книжковий простір, створений для тих, хто цінує атмосферу читання, любить відкривати нові історії та знаходити натхнення на сторінках улюблених видань.
+        </p>
+
+        <p>
+            Асортимент Book Heaven поєднує літературу на різний смак і для різних потреб: від відомої класики та сучасної художньої літератури до навчальних посібників, дитячих видань, іноземних книг і практичних довідників. Тут можна знайти як паперові, так і електронні книги, обрати цікаву новинку, повернутися до перевіреної часом історії або відкрити для себе літературу іншою мовою.
+        </p>
+
+        <p>
+            Ми прагнемо, щоб пошук потрібної книги був простим і приємним. Саме тому в Book Heaven передбачено зручний каталог, пошук за назвою та автором, можливість переглядати детальну інформацію про видання, додавати товари до обраного й формувати власний кошик. Продумана структура допомагає швидко зорієнтуватися серед різноманіття пропозицій і знайти саме те, що відповідає настрою та інтересам читача.
+        </p>
+
+        <p>
+            Особливе місце займають тематичні добірки, книжкові набори, сезонна література та спеціальні пропозиції. А для тих, хто хоче додати трохи книжкової атмосфери у повсякденне життя, ми передбачили окрему колекцію аксесуарів і мерчу Book Heaven. Адже любов до читання проявляється не лише в книгах, а й у маленьких деталях, які створюють особливий настрій.
+        </p>
+
+        <p>
+            <b>Book Heaven — це більше, ніж просто книжковий магазин. Це місце, де кожна книга може стати початком нової пригоди, кожна сторінка — джерелом натхнення, а кожна знайдена історія — особливою частиною життя. Ми віримо, що для кожного читача існує своя книга, і допомагаємо зробити крок назустріч їй.</b>
+        </p>
+    </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<div class="modal" id="cart-modal">
+    <div class="modal-content">
+        <button class="close-button" onclick="closeModal('cart-modal')">×</button>
+        <span class="eyebrow">ТВОЇ ПОКУПКИ</span>
+        <h2>Кошик</h2>
+        <div id="cart-items"></div>
+        <div class="cart-summary">
+            <span>Разом</span>
+            <strong id="cart-total">0 грн</strong>
+        </div>
+        <button class="primary-button full-button" onclick="checkout()">Оформити замовлення</button>
+        <p class="demo-note">Навчальний макет: оплата не проводиться.</p>
+    </div>
+</div>
+
+<div class="modal" id="book-modal">
+    <div class="modal-content book-modal-content">
+        <button class="close-button" onclick="closeModal('book-modal')">×</button>
+        <div id="book-details"></div>
+    </div>
+</div>
+
+<div class="modal" id="login-modal">
+    <div class="modal-content auth-content">
+        <button class="close-button" onclick="closeModal('login-modal')">×</button>
+        <span class="eyebrow">РАДІ ТЕБЕ БАЧИТИ</span>
+        <h2 id="auth-title">Вхід</h2>
+
+        <form id="login-form" onsubmit="loginUser(event)">
+            <label for="login-email">Електронна пошта</label>
+            <input id="login-email" type="email" required>
+
+            <label for="login-password">Пароль</label>
+            <input id="login-password" type="password" required>
+
+            <button class="primary-button full-button" type="submit">Увійти</button>
+            <p class="form-switch">Ще не маєш акаунта?
+                <button type="button" onclick="showRegister()">Зареєструватися</button>
+            </p>
+        </form>
+
+        <form id="register-form" onsubmit="registerUser(event)" hidden>
+            <label for="register-name">Твоє ім’я</label>
+            <input id="register-name" type="text" required>
+
+            <label for="register-email">Електронна пошта</label>
+            <input id="register-email" type="email" required>
+
+            <label for="register-password">Пароль</label>
+            <input id="register-password" type="password" minlength="4" required>
+
+            <button class="primary-button full-button" type="submit">Створити акаунт</button>
+            <p class="form-switch">Вже маєш акаунт?
+                <button type="button" onclick="showLogin()">Увійти</button>
+            </p>
+        </form>
+
+        <p class="demo-note">Демо-акаунт зберігається лише у цьому браузері. Не використовуй справжній пароль.</p>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/product.js"></script>
+<script src="js/footer.js"></script>
+</body>
+</html>

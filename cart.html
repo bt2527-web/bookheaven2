@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик — Book Heaven</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">✦ Book <b>Heaven</b></a>
+
+        <nav class="main-nav">
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <!-- УВІЙТИ -->
+            <button class="header-action" id="user-button"
+                    onclick="openLogin()">
+                ♙ Увійти
+            </button>
+
+            <!-- ОБРАНЕ -->
+            <a href="favorites.html" class="header-action">
+                ♡ Обране <span id="favorites-count">0</span>
+            </a>
+
+            <!-- КОШИК -->
+            <a href="cart.html" class="header-action cart-page-link">
+                🛒 Кошик <span id="cart-count">0</span>
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<main class="cart-page">
+
+    <div class="cart-page-heading">
+        <span class="eyebrow">ТВОЇ КНИЖКОВІ ПОКУПКИ</span>
+        <h1>Мій <span>кошик</span></h1>
+        <p>Тут зібрані історії, які ти обрала для себе.</p>
+    </div>
+
+    <div class="cart-layout">
+
+        <section class="cart-products">
+            <div class="cart-section-heading">
+                <h2>Обрані книги</h2>
+                <a href="catalog.html">Продовжити покупки →</a>
+            </div>
+
+            <div id="cart-page-items"></div>
+        </section>
+
+        <aside class="cart-checkout">
+            <span class="eyebrow">ТВОЄ ЗАМОВЛЕННЯ</span>
+            <h2>Підсумок</h2>
+
+            <div class="cart-total-row">
+                <span>Кількість книг</span>
+                <strong id="cart-page-count">0</strong>
+            </div>
+
+            <div class="cart-total-row cart-total-final">
+                <span>До сплати</span>
+                <strong id="cart-page-total">0 грн</strong>
+            </div>
+
+            <button class="primary-button full-button"
+                    id="checkout-button"
+                    onclick="openCheckout()">
+                Оформити замовлення →
+            </button>
+
+            <p class="demo-note">
+                Навчальний макет: реальна оплата не проводиться.
+            </p>
+        </aside>
+
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО ОФОРМЛЕННЯ -->
+    <section class="checkout-modal modal" id="checkout-modal">
+        <div class="modal-content checkout-content">
+
+            <button class="close-button"
+                    onclick="closeCheckout()">×</button>
+
+            <span class="eyebrow">ЩЕ ТРОХИ — І ГОТОВО</span>
+            <h2>Оформлення <span>замовлення</span></h2>
+
+            <p class="checkout-description">
+                Заповни контактні дані, щоб оформити демонстраційне замовлення.
+            </p>
+
+            <form id="checkout-form" onsubmit="submitOrder(event)">
+
+                <div class="checkout-form-grid">
+
+                    <div class="checkout-field">
+                        <label for="first-name">Ім’я *</label>
+                        <input type="text" id="first-name" required>
+                    </div>
+
+                    <div class="checkout-field">
+                        <label for="last-name">Прізвище *</label>
+                        <input type="text" id="last-name" required>
+                    </div>
+
+                    <div class="checkout-field">
+                        <label for="phone">Номер телефону *</label>
+                        <input type="tel" id="phone"
+                               placeholder="+380..." required>
+                    </div>
+
+                    <div class="checkout-field">
+                        <label for="email">Електронна пошта *</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="checkout-field">
+                        <label for="city">Місто *</label>
+                        <input type="text" id="city" required>
+                    </div>
+
+                    <div class="checkout-field">
+                        <label for="postal-code">Поштовий індекс *</label>
+                        <input type="text" id="postal-code" required>
+                    </div>
+
+                    <div class="checkout-field checkout-field-full">
+                        <label for="street">
+                            Вулиця, будинок, квартира *
+                        </label>
+                        <input type="text" id="street" required>
+                    </div>
+
+                    <div class="checkout-field checkout-field-full">
+                        <label for="comment">
+                            Коментар до замовлення
+                        </label>
+                        <textarea id="comment" rows="3"
+                                  placeholder="Додаткова інформація (необов’язково)"></textarea>
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                        class="primary-button full-button">
+                    Підтвердити замовлення
+                </button>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- ПОВІДОМЛЕННЯ ПРО УСПІШНЕ ЗАМОВЛЕННЯ -->
+    <section class="order-success" id="order-success" hidden>
+
+        <div class="success-symbol">✦</div>
+
+        <span class="eyebrow">BOOK HEAVEN</span>
+
+        <h2>Дякуємо за <span>замовлення!</span></h2>
+
+        <p>
+            Твоє демонстраційне замовлення успішно оформлено.
+            Дякуємо, що обираєш Book Heaven!
+        </p>
+
+        <a href="catalog.html" class="primary-button">
+            Повернутися до каталогу →
+        </a>
+
+    </section>
+
+</main>
+
+<!-- ПІДВАЛ САЙТУ -->
+<div id="site-footer"></div>
+
+<!-- JAVASCRIPT -->
+<script src="js/script.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/footer.js"></script>
+
+</body>
+</html>

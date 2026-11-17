@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книга — Book Heaven</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">✦ Book <b>Heaven</b></a>
+
+        <nav class="main-nav">
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="header-action" onclick="openLogin()" id="user-button">
+                👤 Увійти
+            </button>
+
+            <a href="favorites.html" class="header-action">
+                ♡ Обране
+                <span id="favorites-count">0</span>
+            </a>
+
+            <button class="header-action"
+                    onclick="window.location.href='cart.html'">
+                🛒 Кошик
+                <span id="cart-count">0</span>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<main class="product-page">
+
+    <div class="product-breadcrumbs">
+        <a href="index.html">Головна</a>
+        <span>/</span>
+        <a href="catalog.html">Каталог</a>
+        <span>/</span>
+        <span id="product-breadcrumb-title">Книга</span>
+    </div>
+
+    <section id="product-content">
+        <p class="product-loading">Завантаження інформації про книгу...</p>
+    </section>
+
+    <section class="product-reviews">
+        <span class="eyebrow">ВРАЖЕННЯ ЧИТАЧІВ</span>
+        <h2>Відгуки <span>про книгу</span></h2>
+
+        <div id="reviews-list"></div>
+
+        <div class="review-form-wrapper">
+            <h3>Залишити відгук</h3>
+
+            <form id="review-form">
+                <label for="review-name">Твоє ім'я</label>
+                <input
+                    type="text"
+                    id="review-name"
+                    placeholder="Введи своє ім'я"
+                    maxlength="40"
+                    required
+                >
+
+                <label for="review-rating">Оцінка книги</label>
+                <select id="review-rating" required>
+                    <option value="5">★★★★★ — Чудово</option>
+                    <option value="4">★★★★☆ — Дуже добре</option>
+                    <option value="3">★★★☆☆ — Нормально</option>
+                    <option value="2">★★☆☆☆ — Не дуже</option>
+                    <option value="1">★☆☆☆☆ — Не сподобалося</option>
+                </select>
+
+                <label for="review-text">Твій відгук</label>
+                <textarea
+                    id="review-text"
+                    rows="5"
+                    maxlength="1000"
+                    placeholder="Поділися враженнями про книгу..."
+                    required
+                ></textarea>
+
+                <button type="submit" class="primary-button">
+                    Опублікувати відгук
+                </button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/script.js"></script>
+<script src="js/product.js"></script>
+<script src="js/footer.js"></script>
+
+</body>
+</html>

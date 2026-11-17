@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій акаунт — Book Heaven</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">✦ Book <b>Heaven</b></a>
+
+        <nav class="main-nav">
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="header-action" id="user-button">♙ Увійти</button>
+            <button class="header-action" onclick="window.location.href='cart.html'">
+                🛒 Кошик
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="account-page">
+
+    <div class="account-heading">
+        <span class="eyebrow">ТВІЙ ОСОБИСТИЙ ПРОСТІР</span>
+        <h1>Ласкаво просимо до <span>Book Heaven</span></h1>
+        <p>Увійди до свого акаунта або створи новий, щоб бути ближче до улюблених історій.</p>
+    </div>
+
+    <section class="account-card" id="account-card">
+
+        <div class="account-decoration">
+            <div class="account-decoration-stars">✧　✦　✧</div>
+            <div class="account-decoration-book">✦</div>
+
+            <h2>Твоя історія<br>починається тут</h2>
+
+            <p>
+                Зберігай улюблені книги, відкривай нові історії
+                та повертайся до світу читання знову і знову.
+            </p>
+
+            <div class="account-decoration-bottom">
+                BOOK HEAVEN · A WORLD OF STORIES
+            </div>
+        </div>
+
+        <div class="account-form-side">
+
+            <div id="auth-section">
+
+                <span class="eyebrow" id="account-eyebrow">РАДІ ТЕБЕ БАЧИТИ</span>
+                <h2 id="account-title">Вхід</h2>
+                <p class="account-subtitle" id="account-subtitle">
+                    Увійди, щоб продовжити свою книжкову подорож.
+                </p>
+
+                <form id="account-login-form">
+
+                    <label for="account-login-email">Електронна пошта</label>
+                    <input
+                        type="email"
+                        id="account-login-email"
+                        placeholder="name@example.com"
+                        required
+                    >
+
+                    <label for="account-login-password">Пароль</label>
+                    <input
+                        type="password"
+                        id="account-login-password"
+                        placeholder="Введи свій пароль"
+                        required
+                    >
+
+                    <button class="primary-button full-button" type="submit">
+                        Увійти до акаунта →
+                    </button>
+
+                    <p class="account-switch">
+                        Ще не маєш акаунта?
+                        <button type="button" id="show-register">
+                            Зареєструватися
+                        </button>
+                    </p>
+
+                </form>
+
+                <form id="account-register-form" hidden>
+
+                    <label for="account-register-name">Твоє ім'я</label>
+                    <input
+                        type="text"
+                        id="account-register-name"
+                        placeholder="Як до тебе звертатися?"
+                        required
+                    >
+
+                    <label for="account-register-email">Електронна пошта</label>
+                    <input
+                        type="email"
+                        id="account-register-email"
+                        placeholder="name@example.com"
+                        required
+                    >
+
+                    <label for="account-register-password">Пароль</label>
+                    <input
+                        type="password"
+                        id="account-register-password"
+                        placeholder="Мінімум 4 символи"
+                        minlength="4"
+                        required
+                    >
+
+                    <label for="account-register-confirm">Повтори пароль</label>
+                    <input
+                        type="password"
+                        id="account-register-confirm"
+                        placeholder="Введи пароль ще раз"
+                        minlength="4"
+                        required
+                    >
+
+                    <button class="primary-button full-button" type="submit">
+                        Створити акаунт →
+                    </button>
+
+                    <p class="account-switch">
+                        Вже маєш акаунт?
+                        <button type="button" id="show-login">
+                            Увійти
+                        </button>
+                    </p>
+
+                </form>
+
+            </div>
+
+            <div class="account-welcome" id="account-welcome" hidden>
+                <div class="account-welcome-icon">✦</div>
+                <span class="eyebrow">ТИ ВЖЕ З НАМИ</span>
+                <h2>Вітаємо, <span id="welcome-name"></span>!</h2>
+                <p>
+                    Твій особистий простір Book Heaven готовий.
+                    Повертайся до каталогу та обирай наступну історію.
+                </p>
+
+                <a href="catalog.html" class="primary-button full-button">
+                    Перейти до каталогу →
+                </a>
+
+                <button class="account-logout" id="account-logout">
+                    Вийти з акаунта
+                </button>
+            </div>
+
+            <p class="account-demo-note">
+                
+            </p>
+
+        </div>
+    </section>
+
+    <a href="index.html" class="account-back">← Повернутися на головну</a>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/account.js"></script>
+<script src="js/footer.js"></script>
+
+</body>
+</html>

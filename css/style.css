@@ -1,0 +1,3637 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --pearl: #FFF9F2;
+    --mist: #E9DFF3;
+    --lilac: #B7A9D5;
+    --lavender: #71638F;
+    --night: #292442;
+    --stardust: #D6B9A8;
+    --white: #fff;
+    --muted: #817991;
+    --line: rgba(113,99,143,.16);
+    --shadow: 0 16px 45px rgba(41,36,66,.09);
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 105px;
+}
+
+body {
+    margin: 0;
+    background: var(--pearl);
+    color: var(--night);
+    font-family: 'DM Sans', Arial, sans-serif;
+    line-height: 1.55;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(255,249,242,.96);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+    max-width: 1240px;
+    min-height: 82px;
+    margin: auto;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    white-space: nowrap;
+    font: 600 25px 'Playfair Display', Georgia, serif;
+}
+
+.logo b { color: var(--lavender); }
+.logo-mark { color: var(--stardust); font-size: 27px; }
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    margin: 0 auto;
+}
+
+.nav-link, .main-nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.main-nav a:hover, .main-nav .active {
+    color: var(--lavender);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+}
+
+.header-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--night);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.header-action:hover {
+    background: var(--mist);
+    border-color: var(--lilac);
+    transform: translateY(-1px);
+}
+
+.hero {
+    max-width: 1240px;
+    min-height: 445px;
+    margin: 30px auto 28px;
+    padding: 55px 70px;
+    border-radius: 30px;
+    background: linear-gradient(115deg,#E9DFF3 0%,#F2EAF2 54%,#F8EDE4 100%);
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-copy { max-width: 590px; position: relative; z-index: 2; }
+.eyebrow { color: var(--lavender); font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+
+.hero h1 {
+    margin: 14px 0 16px;
+    font: 600 clamp(39px,4.6vw,59px)/1.1 'Playfair Display',Georgia,serif;
+}
+
+.hero h1 span, .section-heading h2 span,
+.section-title-row h2 span, .about-content h2 span {
+    color: var(--lavender);
+    font-style: italic;
+}
+
+.hero-copy > p { max-width: 490px; color: #625B75; font-size: 14px; }
+
+.hero-buttons { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--night);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.primary-button:hover { background: var(--lavender); transform: translateY(-2px); }
+
+.secondary-button {
+    padding: 12px 19px;
+    border: 1px solid rgba(113,99,143,.3);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero-note { margin-top: 25px; color: #827992; font-size: 10px; }
+
+.hero-art { height: 320px; position: relative; display: grid; place-items: center; }
+.hero-glow { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,.48); }
+.hero-orbit { position: absolute; width: 365px; height: 245px; border: 1px solid rgba(113,99,143,.2); border-radius: 50%; transform: rotate(-23deg); }
+
+.hero-book {
+    position: absolute;
+    bottom: 45px;
+    width: 145px;
+    height: 220px;
+    border-radius: 5px 12px 12px 5px;
+    box-shadow: 12px 15px 24px rgba(41,36,66,.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.book-one { left: calc(50% + 30px); bottom: 56px; background: #D6B9A8; color: #704E50; transform: rotate(12deg); }
+.book-two { left: calc(50% - 48px); bottom: 45px; background: #8C7EA9; color: #fff; transform: rotate(5deg); }
+.book-three { left: calc(50% - 122px); background: #292442; color: #F8EDE4; border-right: 8px solid #51466F; transform: rotate(-5deg); }
+.hero-book span { font: 600 19px/1.35 'Playfair Display',Georgia,serif; }
+.hero-book strong { font: 600 23px/1.15 'Playfair Display',Georgia,serif; }
+.hero-book small { margin-top: 14px; font-size: 8px; }
+.cover-flower { font-size: 28px; color: var(--stardust); margin-bottom: 12px; }
+.floating-star { position: absolute; color: #fff; font-size: 30px; z-index: 2; }
+.star-a { top: 20px; right: 35px; }
+.star-b { bottom: 20px; left: 30px; color: var(--stardust); }
+
+.quick-categories {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 14px;
+}
+
+.category-card {
+    min-height: 88px;
+    padding: 15px 14px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: #fff;
+    transition: .2s;
+}
+
+.category-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.category-symbol {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--mist);
+    color: var(--lavender);
+    font-size: 21px;
+}
+
+.category-sale .category-symbol { background: #F4E8E1; color: #A87969; }
+.category-new .category-symbol { background: #F1E7EE; color: #9A718D; }
+.category-ebook .category-symbol { background: #E6ECE8; color: #6E8878; }
+.category-copy { min-width: 0; }
+.category-card b { display: block; font-size: 12px; }
+.category-card small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
+.category-arrow { margin-left: auto; color: var(--lavender); font-size: 17px; }
+
+.search-section, .books-section, .feature-section, .about-section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 78px 30px 0;
+    scroll-margin-top: 100px;
+}
+
+.section-heading { text-align: center; }
+
+.section-heading h2, .section-title-row h2, .about-content h2 {
+    margin: 8px 0 7px;
+    font: 600 35px/1.2 'Playfair Display',Georgia,serif;
+}
+
+.section-heading p { color: var(--muted); font-size: 12px; }
+
+.search-box {
+    max-width: 670px;
+    margin: 23px auto 0;
+    padding: 7px 8px 7px 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(41,36,66,.05);
+}
+
+.search-icon { color: var(--lavender); font-size: 27px; }
+.search-box input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; font-size: 12px; }
+.search-box button { padding: 11px 20px; border: 0; border-radius: 999px; background: var(--lavender); color: #fff; font-size: 11px; font-weight: 700; }
+.search-results:not(:empty) { margin-top: 27px; }
+
+.feature-section { padding-top: 62px; }
+
+.feature-banner {
+    min-height: 220px;
+    padding: 38px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 25px;
+    background: linear-gradient(110deg,#292442,#51466F);
+    color: #fff;
+    overflow: hidden;
+}
+
+.feature-copy .eyebrow { color: #D6B9A8; }
+.feature-banner h2 { font: 600 32px/1.15 'Playfair Display',Georgia,serif; }
+.feature-banner p { max-width: 490px; color: #D9D3E4; font-size: 12px; }
+.feature-link { color: #E9DFF3; font-size: 11px; font-weight: 700; }
+
+.feature-art { width: 210px; height: 160px; position: relative; flex: 0 0 210px; }
+.feature-moon { position: absolute; top: -8px; right: 27px; color: #D6B9A8; font-size: 75px; }
+.feature-spark { position: absolute; top: 15px; left: 12px; color: #E9DFF3; font-size: 30px; }
+.feature-book-shape {
+    position: absolute;
+    bottom: 3px;
+    left: 25px;
+    width: 145px;
+    height: 95px;
+    border-radius: 8px 8px 15px 15px;
+    background: linear-gradient(135deg,#E9DFF3,#B7A9D5);
+    transform: skewY(-9deg);
+}
+
+.books-section { padding-top: 73px; }
+.section-title-row { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 23px; }
+.section-note, .text-link { color: var(--muted); font-size: 11px; }
+
+.seasonal-panel {
+    min-height: 125px;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px dashed #C9BDD9;
+    border-radius: 18px;
+    background: rgba(233,223,243,.35);
+}
+
+.seasonal-icon {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 17px;
+    background: #fff;
+    color: var(--lavender);
+    font-size: 27px;
+}
+
+.seasonal-panel h3 { margin: 0 0 4px; font: 600 18px 'Playfair Display',Georgia,serif; }
+.seasonal-panel p { max-width: 680px; margin: 0; color: var(--muted); font-size: 11px; }
+.seasonal-panel .text-link { margin-left: auto; white-space: nowrap; }
+
+.book-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+
+.book-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #fff;
+    transition: .2s;
+}
+
+.book-card > .sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    z-index: 10;
+    display: inline-block;
+    width: auto;
+    padding: 8px 13px;
+    background: #e53945;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 10px rgba(229, 57, 69, 0.3);
+}
+
+.book-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.book-cover {
+    height: 225px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: linear-gradient(140deg,#E9DFF3,#F7EDE5);
+}
+
+.book-cover img { width: 100%; height: 100%; object-fit: contain; }
+
+.book-cover.no-image:after {
+    content: "✦ BOOK HEAVEN ✦";
+    color: var(--lavender);
+    font: 600 16px 'Playfair Display',Georgia,serif;
+    letter-spacing: 2px;
+}
+
+.book-info { padding: 16px; }
+.book-info h3 { min-height: 42px; margin: 0 0 4px; font: 600 16px/1.25 'Playfair Display',Georgia,serif; }
+.book-info p { min-height: 18px; margin: 0 0 9px; color: var(--muted); font-size: 11px; }
+.book-info > strong { color: var(--lavender); font-size: 14px; }
+.book-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+.book-actions button { padding: 8px 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: 10px; font-weight: 700; }
+.book-actions button:first-child { border-color: var(--night); background: var(--night); color: #fff; }
+
+.ebooks-section { padding-bottom: 70px; }
+
+.about-section {
+    padding-top: 15px;
+    padding-bottom: 82px;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-mark {
+    width: 110px;
+    height: 110px;
+    display: grid;
+    place-items: center;
+    border-radius: 35px;
+    background: linear-gradient(145deg,#E9DFF3,#F4E8E1);
+    color: var(--lavender);
+    font-size: 55px;
+}
+
+.about-content h2 { margin: 8px 0 13px; }
+.about-content p { max-width: 850px; color: #6F687D; font-size: 12px; }
+
+.site-footer { background: var(--night); color: #fff; }
+
+.footer-inner {
+    max-width: 1240px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+}
+
+.footer-logo { font-size: 22px; }
+.footer-inner p, .footer-links a, .copyright { color: #C7C0D5; font-size: 10px; }
+.footer-links { display: flex; gap: 20px; }
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(27,23,43,.56);
+    backdrop-filter: blur(5px);
+}
+
+.modal.open { display: flex; }
+
+.modal-content {
+    position: relative;
+    width: min(560px,100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 34px;
+    border-radius: 22px;
+    background: var(--pearl);
+}
+
+.modal-content h2 { font: 600 30px 'Playfair Display',Georgia,serif; }
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 17px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--mist);
+    color: var(--night);
+    font-size: 23px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 55px 1fr auto;
+    align-items: center;
+    gap: 13px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cart-item img { width: 55px; height: 66px; object-fit: contain; background: var(--mist); }
+.cart-item h3 { margin: 0; font: 600 14px 'Playfair Display',Georgia,serif; }
+.cart-item p { color: var(--lavender); font-size: 12px; }
+.cart-item button { border: 0; background: transparent; color: #A16F72; font-size: 11px; }
+
+.cart-summary { display: flex; justify-content: space-between; padding: 18px 0; }
+.cart-summary strong { color: var(--lavender); font-size: 18px; }
+.full-button { width: 100%; }
+.demo-note { color: var(--muted); font-size: 10px; }
+
+#book-details { text-align: center; }
+#book-details img { width: 150px; height: 190px; object-fit: contain; }
+#book-details strong { display: block; margin-bottom: 18px; color: var(--lavender); }
+
+.auth-content label { display: block; margin: 13px 0 5px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.auth-content input { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; outline: none; background: #fff; }
+.auth-content form .primary-button { margin-top: 18px; }
+.form-switch { text-align: center; font-size: 11px; }
+.form-switch button { border: 0; background: none; color: var(--lavender); font-weight: 700; }
+[hidden] { display: none !important; }
+
+@media(max-width:900px) {
+    .header-inner { flex-wrap: wrap; gap: 12px; }
+    .main-nav { order: 3; width: 100%; justify-content: center; margin: 0; }
+    .header-actions { margin-left: auto; }
+    .hero { margin: 20px 16px; padding: 40px 30px; }
+    .quick-categories { grid-template-columns: repeat(2,1fr); padding: 0 16px; }
+    .search-section,.books-section,.feature-section,.about-section { padding-left: 16px; padding-right: 16px; }
+    .book-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media(max-width:600px) {
+    .header-inner { padding: 12px 14px; }
+    .logo { font-size: 21px; }
+    .header-actions { width: 100%; justify-content: center; gap: 5px; }
+    .header-action { padding: 8px 9px; font-size: 10px; }
+    .hero { grid-template-columns: 1fr; padding: 32px 23px 10px; }
+    .hero h1 { font-size: 40px; }
+    .hero-art { height: 255px; transform: scale(.88); }
+    .quick-categories { gap: 9px; }
+    .category-card { padding: 11px 8px; gap: 7px; }
+    .category-symbol { width: 34px; height: 34px; flex-basis: 34px; }
+    .category-card b { font-size: 10px; }
+    .category-card small { font-size: 9px; }
+    .section-heading h2,.section-title-row h2,.about-content h2 { font-size: 28px; }
+    .section-title-row { align-items: start; flex-direction: column; }
+    .book-grid { gap: 11px; }
+    .book-cover { height: 165px; }
+    .book-info { padding: 11px; }
+    .book-info h3 { font-size: 13px; }
+    .feature-banner { padding: 27px 23px; }
+    .feature-art { display: none; }
+    .seasonal-panel { align-items: flex-start; flex-wrap: wrap; padding: 18px; }
+    .about-section { grid-template-columns: 1fr; gap: 15px; padding-bottom: 55px; }
+    .about-mark { width: 70px; height: 70px; font-size: 35px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+    .modal-content { padding: 28px 20px; }
+}
+
+/* =====================================
+   BOOK HEAVEN — ЄДИНИЙ СТИЛЬ КАТАЛОГУ
+===================================== */
+
+.catalog-header {
+    min-height: 86px;
+    padding: 0 max(30px, calc((100% - 1440px) / 2));
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: #FFF9F2;
+    border-bottom: 1px solid #E9DFF3;
+}
+
+.catalog-logo {
+    color: #292442;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.catalog-logo:first-letter {
+    color: #D6B9A8;
+}
+
+.catalog-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+    flex: 1;
+}
+
+.catalog-nav a {
+    color: #71638F;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.catalog-nav a:hover,
+.catalog-nav a.active {
+    color: #292442;
+}
+
+.catalog-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.catalog-actions .header-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 18px;
+    background: #FFFFFF;
+    border: 1px solid #E9DFF3;
+    border-radius: 30px;
+    color: #292442;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.catalog-actions .header-pill:hover {
+    background: #F3EDF8;
+    transform: translateY(-2px);
+}
+
+.catalog-actions .header-pill span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #E9DFF3;
+    color: #71638F;
+    font-size: 12px;
+}
+
+/* Основне розташування */
+
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    min-height: calc(100vh - 86px);
+    background: #FFF9F2;
+}
+
+/* Бічна панель фільтрів */
+
+.filters {
+    background: #F0EAF6;
+    padding: 20px 15px;
+    border-right: 1px solid #E9DFF3;
+}
+
+.filter-section {
+    padding: 20px 12px;
+    border-bottom: 1px solid #DED4E9;
+}
+
+.filter-title {
+    display: block;
+    margin: -20px -12px 17px;
+    padding: 15px 12px;
+    background: #E5DCEF;
+    color: #71638F;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 14px 0;
+    color: #292442;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: #71638F;
+    cursor: pointer;
+}
+
+.filter-search,
+.price-input {
+    width: 100%;
+    min-width: 0;
+    padding: 13px;
+    box-sizing: border-box;
+    border: 1px solid #E9DFF3;
+    border-radius: 9px;
+    background: #FFFFFF;
+    color: #292442;
+    font-size: 14px;
+    outline: none;
+}
+
+.filter-search:focus,
+.price-input:focus {
+    border-color: #B7A9D5;
+    box-shadow: 0 0 0 3px rgba(183,169,213,.2);
+}
+
+.price-fields {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-arrow {
+    color: #71638F;
+}
+
+.price-caption {
+    margin-top: 9px;
+    color: #71638F;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* Основна частина каталогу */
+
+.catalog-main {
+    min-width: 0;
+    padding: 30px;
+    background: #FFF9F2;
+}
+
+.category-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.category-tab {
+    min-height: 65px;
+    padding: 12px;
+    border: 1px solid #E9DFF3;
+    border-radius: 16px;
+    background: #FFFFFF;
+    color: #71638F;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.category-tab:hover {
+    background: #F3EDF8;
+    transform: translateY(-2px);
+}
+
+.category-tab.active {
+    background: #71638F;
+    border-color: #71638F;
+    color: #FFFFFF;
+}
+
+.catalog-heading {
+    margin: 0 0 23px;
+    color: #292442;
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+/* Картки книг */
+
+.catalog-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 20px;
+}
+
+.catalog-book {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #EEE6F0;
+    border-radius: 17px;
+    background: #FFFFFF;
+    box-shadow: 0 5px 18px rgba(41,36,66,.06);
+    transition: .25s;
+}
+
+.catalog-book:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 24px rgba(41,36,66,.11);
+}
+
+.catalog-book img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    margin: 0 auto 14px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.catalog-book h3 {
+    margin: 5px 0 9px;
+    color: #292442;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.catalog-book p {
+    margin: 5px 0;
+    color: #71638F;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.catalog-book .book-price {
+    margin: 13px 0;
+    color: #292442;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.catalog-book-buttons {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: auto;
+}
+
+.catalog-book-buttons button {
+    min-height: 43px;
+    padding: 10px 13px;
+    border: none;
+    border-radius: 9px;
+    background: #E9DFF3;
+    color: #292442;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.catalog-book-buttons button:hover {
+    background: #D6C9E7;
+}
+
+.catalog-book-buttons .add-button {
+    flex: 1;
+    background: #71638F;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.catalog-book-buttons .add-button:hover {
+    background: #292442;
+}
+
+.empty-catalog {
+    grid-column: 1 / -1;
+    padding: 35px;
+    border-radius: 15px;
+    background: #F0EAF6;
+    color: #71638F;
+    text-align: center;
+    font-size: 17px;
+}
+
+/* Модальні вікна */
+
+.catalog-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(41,36,66,.55);
+}
+
+.catalog-modal.show {
+    display: flex;
+}
+
+.catalog-modal-box {
+    width: min(500px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px;
+    border-radius: 18px;
+    background: #FFF9F2;
+    color: #292442;
+    box-shadow: 0 15px 50px rgba(41,36,66,.2);
+}
+
+.catalog-close {
+    float: right;
+    border: none;
+    background: transparent;
+    color: #71638F;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* Адаптація під телефон */
+
+@media (max-width: 1050px) {
+    .catalog-header {
+        flex-wrap: wrap;
+        padding: 15px 22px;
+    }
+
+    .catalog-nav {
+        flex: initial;
+    }
+
+    .catalog-layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+    }
+
+    .category-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .catalog-header {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .catalog-logo {
+        font-size: 25px;
+    }
+
+    .catalog-nav {
+        gap: 18px;
+    }
+
+    .catalog-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .catalog-layout {
+        display: block;
+    }
+
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .catalog-main {
+        padding: 18px 12px;
+    }
+
+    .category-tabs {
+        gap: 9px;
+    }
+
+    .category-tab {
+        font-size: 13px;
+    }
+
+    .catalog-results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .catalog-book {
+        padding: 10px;
+    }
+
+    .catalog-book img {
+        height: 170px;
+    }
+}
+
+/* АКЦІЙНА ПЛАШКА В КАТАЛОЗІ */
+.catalog-book > .sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    z-index: 10;
+    display: inline-block;
+    width: auto;
+    padding: 8px 13px;
+    border: none;
+    border-radius: 6px;
+    background: #e53945;
+    color: #ffffff;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 10px rgba(229, 57, 69, 0.3);
+}
+/* =====================================
+   ОКРЕМА СТОРІНКА КОШИКА BOOK HEAVEN
+===================================== */
+
+.cart-page {
+    max-width: 1200px;
+    width: 90%;
+    margin: 70px auto 100px;
+    min-height: 500px;
+}
+
+.cart-page-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.cart-page-heading h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 48px;
+    color: #292442;
+    margin: 12px 0;
+}
+
+.cart-page-heading h1 span,
+.checkout-content h2 span,
+.order-success h2 span {
+    color: #8d78b5;
+}
+
+.cart-page-heading p {
+    color: #71638F;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 35px;
+    align-items: start;
+}
+
+.cart-products,
+.cart-checkout {
+    background: #fff;
+    border: 1px solid #E9DFF3;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(41, 36, 66, 0.05);
+}
+
+.cart-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.cart-section-heading h2,
+.cart-checkout h2 {
+    font-family: "Playfair Display", serif;
+    color: #292442;
+    font-size: 25px;
+    margin: 0;
+}
+
+.cart-section-heading a {
+    color: #8d78b5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cart-page-item {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr) auto;
+    gap: 22px;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid #eee8f3;
+}
+
+.cart-product-image {
+    width: 100px;
+    height: 135px;
+    background: #F5EFF9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cart-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-product-info h3 {
+    color: #292442;
+    font-size: 17px;
+    margin: 0 0 7px;
+}
+
+.cart-product-info p {
+    color: #827991;
+    font-size: 13px;
+    margin: 0 0 12px;
+}
+
+.cart-product-price,
+.cart-product-prices strong {
+    color: #71638F;
+    font-size: 16px;
+}
+
+.cart-product-prices {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.cart-product-prices del {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.cart-quantity {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #E9DFF3;
+    border-radius: 9px;
+    padding: 4px 8px;
+    margin-top: 10px;
+}
+
+.cart-quantity button {
+    border: none;
+    background: transparent;
+    color: #71638F;
+    font-size: 21px;
+    cursor: pointer;
+    width: 25px;
+    height: 27px;
+}
+
+.cart-quantity button:hover {
+    color: #292442;
+}
+
+.cart-quantity span {
+    min-width: 15px;
+    text-align: center;
+    color: #292442;
+}
+
+.cart-product-end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+}
+
+.cart-subtotal {
+    color: #292442;
+    white-space: nowrap;
+}
+
+.cart-remove {
+    border: none;
+    background: transparent;
+    color: #b36b78;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.cart-remove:hover {
+    text-decoration: underline;
+}
+
+.cart-checkout {
+    position: sticky;
+    top: 25px;
+}
+
+.cart-checkout h2 {
+    margin: 10px 0 25px;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    color: #71638F;
+    border-bottom: 1px solid #eee8f3;
+}
+
+.cart-total-row strong {
+    color: #292442;
+}
+
+.cart-total-final {
+    margin-bottom: 25px;
+    border-bottom: none;
+    font-size: 17px;
+}
+
+.cart-total-final strong {
+    color: #8d78b5;
+    font-size: 21px;
+}
+
+.cart-checkout .demo-note {
+    color: #999;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.cart-checkout button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.cart-empty-icon {
+    font-size: 55px;
+    color: #B7A9D5;
+    margin-bottom: 15px;
+}
+
+.cart-empty h3 {
+    font-family: "Playfair Display", serif;
+    color: #292442;
+    font-size: 24px;
+}
+
+.cart-empty p {
+    color: #827991;
+    margin-bottom: 25px;
+}
+
+/* ФОРМА ОФОРМЛЕННЯ */
+
+.checkout-content {
+    max-width: 650px;
+    width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.checkout-content h2 {
+    font-family: "Playfair Display", serif;
+    color: #292442;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.checkout-description {
+    color: #827991;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.checkout-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.checkout-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.checkout-field-full {
+    grid-column: 1 / -1;
+}
+
+.checkout-field label {
+    color: #51476b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.checkout-field input,
+.checkout-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd3e9;
+    border-radius: 9px;
+    padding: 12px;
+    background: #fff;
+    color: #292442;
+    font-family: "DM Sans", sans-serif;
+    outline: none;
+}
+
+.checkout-field input:focus,
+.checkout-field textarea:focus {
+    border-color: #9b88c0;
+    box-shadow: 0 0 0 3px rgba(183, 169, 213, 0.15);
+}
+
+.checkout-field textarea {
+    resize: vertical;
+}
+
+.checkout-content form > button {
+    margin-top: 24px;
+}
+
+/* ПІДТВЕРДЖЕННЯ ЗАМОВЛЕННЯ */
+
+.order-success {
+    text-align: center;
+    background: #fff;
+    border: 1px solid #E9DFF3;
+    border-radius: 22px;
+    padding: 60px 25px;
+    max-width: 650px;
+    margin: 0 auto 70px;
+    box-shadow: 0 8px 30px rgba(41, 36, 66, 0.05);
+}
+
+.order-success[hidden] {
+    display: none;
+}
+
+.success-symbol {
+    font-size: 55px;
+    color: #9b88c0;
+    margin-bottom: 15px;
+}
+
+.order-success h2 {
+    font-family: "Playfair Display", serif;
+    color: #292442;
+    font-size: 32px;
+}
+
+.order-success p {
+    color: #827991;
+    line-height: 1.7;
+    margin: 15px auto 25px;
+    max-width: 430px;
+}
+
+/* ПОСИЛАННЯ НА КОШИК У ШАПЦІ */
+
+.cart-page-link {
+    text-decoration: none;
+}
+
+/* АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ */
+
+@media (max-width: 800px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-checkout {
+        position: static;
+    }
+}
+
+@media (max-width: 550px) {
+    .cart-page {
+        margin-top: 40px;
+    }
+
+    .cart-page-heading h1 {
+        font-size: 36px;
+    }
+
+    .cart-products,
+    .cart-checkout {
+        padding: 18px;
+    }
+
+    .cart-page-item {
+        grid-template-columns: 75px minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .cart-product-image {
+        width: 75px;
+        height: 105px;
+    }
+
+    .cart-product-end {
+        grid-column: 2;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cart-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .checkout-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-field-full {
+        grid-column: auto;
+    }
+}
+
+/* ==========================================
+   ОКРЕМА СТОРІНКА КНИГИ — BOOK HEAVEN
+========================================== */
+
+.product-page {
+    max-width: 1180px;
+    width: calc(100% - 40px);
+    margin: 45px auto 90px;
+}
+
+.product-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 30px;
+    color: #817991;
+    font-size: 12px;
+}
+
+.product-breadcrumbs a {
+    color: #71638F;
+    font-weight: 600;
+}
+
+.product-breadcrumbs a:hover {
+    color: #292442;
+}
+
+.product-loading {
+    padding: 60px 20px;
+    text-align: center;
+    color: #71638F;
+}
+
+.product-main {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+    gap: 55px;
+    align-items: start;
+    padding: 35px;
+    border: 1px solid #E9DFF3;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 35px rgba(41,36,66,.06);
+}
+
+.product-image {
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(145deg,#E9DFF3,#F8EDE4);
+}
+
+.product-image img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    max-height: 430px;
+    object-fit: contain;
+    filter: drop-shadow(8px 12px 12px rgba(41,36,66,.17));
+}
+
+.product-information {
+    min-width: 0;
+}
+
+.product-information h1 {
+    margin: 12px 0;
+    color: #292442;
+    font: 600 clamp(30px,4vw,42px)/1.2 'Playfair Display',Georgia,serif;
+}
+
+.product-author {
+    margin: 0 0 25px;
+    color: #817991;
+    font-size: 14px;
+}
+
+.product-author strong {
+    color: #71638F;
+}
+
+.product-description {
+    padding: 20px 0;
+    border-top: 1px solid #EEE8F3;
+    border-bottom: 1px solid #EEE8F3;
+}
+
+.product-description h2,
+.product-characteristics h2 {
+    margin: 0 0 12px;
+    color: #292442;
+    font: 600 21px 'Playfair Display',Georgia,serif;
+}
+
+.product-description p {
+    margin: 0;
+    color: #716B7D;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.product-characteristics {
+    padding: 23px 0;
+}
+
+.product-characteristics p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 11px 0;
+    color: #716B7D;
+    font-size: 13px;
+}
+
+.product-characteristics p strong {
+    color: #292442;
+}
+
+.product-buy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    padding-top: 20px;
+    border-top: 1px solid #EEE8F3;
+}
+
+.product-price {
+    color: #71638F;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.product-prices {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-prices del {
+    color: #AAA;
+    font-size: 15px;
+}
+
+.product-prices strong {
+    color: #E53945;
+    font-size: 25px;
+}
+
+.product-sale-label {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #E53945;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.product-add-button {
+    min-height: 46px;
+}
+
+.product-not-found {
+    padding: 60px 25px;
+    border: 1px solid #E9DFF3;
+    border-radius: 20px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.product-not-found h2 {
+    color: #292442;
+    font: 600 28px 'Playfair Display',Georgia,serif;
+}
+
+.product-not-found p {
+    margin-bottom: 25px;
+    color: #817991;
+}
+
+
+/* ==========================================
+   ВІДГУКИ
+========================================== */
+
+.product-reviews {
+    margin-top: 65px;
+}
+
+.product-reviews > h2 {
+    margin: 10px 0 25px;
+    color: #292442;
+    font: 600 34px 'Playfair Display',Georgia,serif;
+}
+
+.product-reviews > h2 span {
+    color: #71638F;
+    font-style: italic;
+}
+
+.empty-message {
+    padding: 25px;
+    border: 1px dashed #C9BDD9;
+    border-radius: 15px;
+    background: rgba(233,223,243,.35);
+    color: #817991;
+    text-align: center;
+    font-size: 13px;
+}
+
+.review-card {
+    margin-bottom: 15px;
+    padding: 22px;
+    border: 1px solid #E9DFF3;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 5px 18px rgba(41,36,66,.04);
+}
+
+.review-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.review-card-header strong {
+    color: #292442;
+    font-size: 14px;
+}
+
+.review-stars {
+    color: #D6A85F;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.review-card > p {
+    margin: 13px 0;
+    color: #716B7D;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.review-date {
+    color: #A49BAE;
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   ФОРМА ДОДАВАННЯ ВІДГУКУ
+========================================== */
+
+.review-form-wrapper {
+    max-width: 680px;
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid #E9DFF3;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 25px rgba(41,36,66,.05);
+}
+
+.review-form-wrapper h3 {
+    margin: 0 0 20px;
+    color: #292442;
+    font: 600 23px 'Playfair Display',Georgia,serif;
+}
+
+.review-form-wrapper label {
+    display: block;
+    margin: 15px 0 7px;
+    color: #51476B;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.review-form-wrapper input,
+.review-form-wrapper select,
+.review-form-wrapper textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #DDD3E9;
+    border-radius: 10px;
+    outline: none;
+    background: #FFF9F2;
+    color: #292442;
+    font-family: 'DM Sans',Arial,sans-serif;
+    font-size: 13px;
+}
+
+.review-form-wrapper textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.review-form-wrapper input:focus,
+.review-form-wrapper select:focus,
+.review-form-wrapper textarea:focus {
+    border-color: #9B88C0;
+    box-shadow: 0 0 0 3px rgba(183,169,213,.17);
+}
+
+.review-form-wrapper button {
+    margin-top: 20px;
+}
+
+
+/* ==========================================
+   АДАПТАЦІЯ СТОРІНКИ КНИГИ
+========================================== */
+
+@media(max-width: 750px) {
+    .product-page {
+        width: calc(100% - 28px);
+        margin-top: 25px;
+    }
+
+    .product-main {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .product-image {
+        min-height: 300px;
+    }
+
+    .product-image img {
+        max-height: 330px;
+    }
+
+    .product-information h1 {
+        font-size: 32px;
+    }
+
+    .product-reviews {
+        margin-top: 45px;
+    }
+
+    .product-reviews > h2 {
+        font-size: 28px;
+    }
+
+    .review-form-wrapper {
+        padding: 20px;
+    }
+}
+
+@media(max-width: 450px) {
+    .product-buy {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .product-add-button {
+        width: 100%;
+    }
+
+    .product-image {
+        min-height: 250px;
+    }
+
+    .product-breadcrumbs {
+        font-size: 10px;
+    }
+}
+
+/* =====================================
+   АКЦІЙНІ ЦІНИ В КАТАЛОЗІ
+===================================== */
+
+.catalog-book .book-prices {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 13px 0;
+}
+
+.catalog-book .old-price {
+    color: #A7A1AD;
+    font-size: 14px;
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.catalog-book .sale-price {
+    color: #E53945;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Червона плашка зі знижкою */
+
+.catalog-book > .sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    z-index: 20;
+    display: inline-block;
+    width: auto;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 7px;
+    background: #E53945;
+    color: #FFFFFF;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(229, 57, 69, 0.3);
+}
+/* =====================================
+   АКЦІЙНІ ЦІНИ НА ГОЛОВНІЙ СТОРІНЦІ
+===================================== */
+
+.book-card .book-prices {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.book-card .old-price {
+    color: #A7A1AD;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.book-card .sale-price {
+    color: #E53945;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Червона плашка зі знижкою */
+
+.book-card > .sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    z-index: 20;
+    display: inline-block;
+    width: auto;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 7px;
+    background: #E53945;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(229, 57, 69, 0.3);
+}
+
+/* ОНОВЛЕНИЙ ПІДВАЛ САЙТУ */
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.5fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.footer-about p {
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+.footer-links,
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links h3,
+.footer-contacts h3 {
+    margin-bottom: 5px;
+}
+
+.footer-links a,
+.footer-contacts a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-contacts a:hover {
+    color: #d9a7c7;
+}
+
+.footer-contacts p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.footer-contacts p span {
+    flex-shrink: 0;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ */
+
+@media (max-width: 700px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .copyright {
+        grid-column: 1;
+    }
+}
+
+/* ==========================================
+   ОКРЕМА СТОРІНКА АКАУНТА — BOOK HEAVEN
+========================================== */
+
+.account-page {
+    max-width: 1180px;
+    width: calc(100% - 40px);
+    margin: 55px auto 80px;
+}
+
+.account-heading {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 35px;
+}
+
+.account-heading h1 {
+    margin: 12px 0;
+    font: 600 clamp(30px, 4vw, 43px)/1.2 'Playfair Display', Georgia, serif;
+}
+
+.account-heading h1 span {
+    color: var(--lavender);
+    font-style: italic;
+}
+
+.account-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.account-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    min-height: 560px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+
+/* ДЕКОРАТИВНА ЛІВА ЧАСТИНА */
+
+.account-decoration {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 45px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #292442, #51466F);
+    color: #fff;
+}
+
+.account-decoration::before,
+.account-decoration::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 50%;
+}
+
+.account-decoration::before {
+    width: 340px;
+    height: 340px;
+    top: -150px;
+    right: -140px;
+}
+
+.account-decoration::after {
+    width: 250px;
+    height: 250px;
+    bottom: -125px;
+    left: -100px;
+}
+
+.account-decoration-stars {
+    color: #D6B9A8;
+    font-size: 23px;
+    letter-spacing: 8px;
+}
+
+.account-decoration-book {
+    width: 110px;
+    height: 135px;
+    margin: 35px 0;
+    display: grid;
+    place-items: center;
+    border-radius: 7px 14px 14px 7px;
+    border-right: 7px solid #D6B9A8;
+    background: linear-gradient(145deg, #E9DFF3, #B7A9D5);
+    color: #51466F;
+    font: 600 50px 'Playfair Display', Georgia, serif;
+    box-shadow: 12px 14px 25px rgba(0,0,0,.2);
+    transform: rotate(-7deg);
+}
+
+.account-decoration h2 {
+    margin: 0 0 14px;
+    font: 600 34px/1.2 'Playfair Display', Georgia, serif;
+}
+
+.account-decoration p {
+    max-width: 350px;
+    color: #D9D3E4;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.account-decoration-bottom {
+    margin-top: 40px;
+    color: #D6B9A8;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* ПРАВА ЧАСТИНА З ФОРМОЮ */
+
+.account-form-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 55px;
+}
+
+.account-form-side h2 {
+    margin: 10px 0 5px;
+    color: var(--night);
+    font: 600 34px 'Playfair Display', Georgia, serif;
+}
+
+.account-subtitle {
+    margin: 0 0 25px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.account-form-side label {
+    display: block;
+    margin: 15px 0 7px;
+    color: #51476B;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.account-form-side input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 14px 15px;
+    border: 1px solid #DDD3E9;
+    border-radius: 10px;
+    outline: none;
+    background: #FFF9F2;
+    color: var(--night);
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.account-form-side input:focus {
+    border-color: var(--lavender);
+    box-shadow: 0 0 0 3px rgba(183,169,213,.18);
+}
+
+.account-form-side input::placeholder {
+    color: #A49BAE;
+}
+
+.account-form-side form .primary-button {
+    margin-top: 25px;
+    min-height: 47px;
+}
+
+.account-switch {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+}
+
+.account-switch button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--lavender);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.account-switch button:hover {
+    text-decoration: underline;
+}
+
+.account-demo-note {
+    margin-top: 28px;
+    color: #A49BAE;
+    font-size: 10px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ПРИВІТАННЯ ПІСЛЯ ВХОДУ */
+
+.account-welcome {
+    text-align: center;
+}
+
+.account-welcome-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 25px;
+    background: var(--mist);
+    color: var(--lavender);
+    font-size: 38px;
+}
+
+.account-welcome h2 {
+    margin: 12px 0;
+}
+
+.account-welcome h2 span {
+    color: var(--lavender);
+}
+
+.account-welcome p {
+    margin: 15px 0 25px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.account-logout {
+    display: block;
+    margin: 18px auto 0;
+    padding: 10px 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: #A16F72;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.account-logout:hover {
+    background: #F8EDE4;
+}
+
+.account-back {
+    display: block;
+    width: fit-content;
+    margin: 28px auto 0;
+    color: var(--lavender);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.account-back:hover {
+    color: var(--night);
+}
+
+/* АДАПТАЦІЯ */
+
+@media(max-width: 800px) {
+    .account-card {
+        grid-template-columns: 1fr;
+    }
+
+    .account-decoration {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .account-decoration-book {
+        width: 75px;
+        height: 90px;
+        margin: 20px 0;
+        font-size: 35px;
+    }
+
+    .account-decoration h2 {
+        font-size: 28px;
+    }
+
+    .account-decoration-bottom {
+        margin-top: 20px;
+    }
+
+    .account-form-side {
+        padding: 35px;
+    }
+}
+
+@media(max-width: 550px) {
+    .account-page {
+        width: calc(100% - 24px);
+        margin-top: 30px;
+    }
+
+    .account-heading h1 {
+        font-size: 29px;
+    }
+
+    .account-heading p {
+        font-size: 11px;
+    }
+
+    .account-decoration {
+        min-height: 270px;
+        padding: 25px;
+    }
+
+    .account-form-side {
+        padding: 28px 22px;
+    }
+
+    .account-form-side h2 {
+        font-size: 29px;
+    }
+}
+
+/* =========================================
+   СТОРІНКА ОБРАНОГО — BOOK HEAVEN
+========================================= */
+
+/* Основний блок сторінки */
+.favorites-page-content {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 20px 30px 90px;
+}
+
+/* Заголовок секції */
+.favorites-page-content .cart-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.favorites-page-content .cart-section-heading h2 {
+    color: var(--night);
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin: 0;
+}
+
+.favorites-page-content .cart-section-heading a {
+    color: var(--lavender);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .25s ease;
+}
+
+.favorites-page-content .cart-section-heading a:hover {
+    color: var(--night);
+}
+
+/* Сітка книжок */
+#favorites-page-items.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* Картка книжки */
+#favorites-page-items .book-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+#favorites-page-items .book-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(41, 36, 66, .15);
+}
+
+/* Обкладинка */
+#favorites-page-items .book-cover {
+    position: relative;
+    height: 280px;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--pearl);
+}
+
+#favorites-page-items .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .3s ease;
+}
+
+#favorites-page-items .book-card:hover .book-cover img {
+    transform: scale(1.04);
+}
+
+/* Інформація про книжку */
+#favorites-page-items .book-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    gap: 10px;
+}
+
+#favorites-page-items .book-info h3 {
+    margin: 0;
+    color: var(--night);
+    font-family: "Playfair Display", serif;
+    font-size: 19px;
+    line-height: 1.35;
+}
+
+#favorites-page-items .book-info h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#favorites-page-items .book-info h3 a:hover {
+    color: var(--lavender);
+}
+
+#favorites-page-items .book-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Звичайна ціна */
+#favorites-page-items .book-info > strong {
+    color: var(--night);
+    font-size: 19px;
+}
+
+/* Ціни акційних книжок */
+#favorites-page-items .book-prices {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#favorites-page-items .book-prices .old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+#favorites-page-items .book-prices .sale-price {
+    color: #D94343;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Червона плашка зі знижкою */
+#favorites-page-items .sale-badge {
+    position: absolute;
+    z-index: 2;
+    top: 13px;
+    right: 13px;
+    left: auto;
+    background: #D94343;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(217, 67, 67, .2);
+}
+
+/* Кнопки картки */
+#favorites-page-items .book-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+#favorites-page-items .book-actions button {
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--mist);
+    color: var(--night);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+#favorites-page-items .book-actions button:first-child {
+    background: var(--lavender);
+    border-color: var(--lavender);
+    color: white;
+}
+
+#favorites-page-items .book-actions button:first-child:hover {
+    background: var(--night);
+    border-color: var(--night);
+}
+
+#favorites-page-items .book-actions button:nth-child(2):hover {
+    background: #FBE5E5;
+    border-color: #D94343;
+    color: #C83232;
+}
+
+#favorites-page-items .book-actions button:last-child {
+    background: transparent;
+}
+
+#favorites-page-items .book-actions button:last-child:hover {
+    background: var(--pearl);
+    border-color: var(--lilac);
+}
+
+/* Порожнє обране */
+#favorites-page-items .favorites-empty {
+    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 65px 25px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+#favorites-page-items .favorites-empty .cart-empty-icon {
+    color: var(--lilac);
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+#favorites-page-items .favorites-empty h3 {
+    color: var(--night);
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+}
+
+#favorites-page-items .favorites-empty p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 768px) {
+
+    .favorites-page-content {
+        padding: 15px 18px 60px;
+    }
+
+    #favorites-page-items.book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    #favorites-page-items .book-cover {
+        height: 210px;
+        padding: 12px;
+    }
+
+    #favorites-page-items .book-info {
+        padding: 13px;
+    }
+
+    #favorites-page-items .book-info h3 {
+        font-size: 16px;
+    }
+
+    #favorites-page-items .book-actions button {
+        font-size: 12px;
+        padding: 9px 5px;
+    }
+
+    .favorites-page-content .cart-section-heading h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    #favorites-page-items.book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #favorites-page-items .book-cover {
+        height: 260px;
+    }
+
+    .favorites-page-content .cart-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+/* =========================================
+   BOOK HEAVEN — ЄДИНА ШАПКА НА ВСІХ СТОРІНКАХ
+========================================= */
+
+.site-header,
+.catalog-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 249, 242, 0.97);
+    backdrop-filter: blur(15px);
+}
+
+/* Основна шапка */
+
+.header-inner {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 12px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Навігація */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 0 auto;
+}
+
+/* Кнопки Увійти, Обране, Кошик */
+
+.header-actions {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.header-action {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+    white-space: nowrap;
+
+    padding: 10px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+
+    background: #fff;
+    color: var(--night);
+
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.header-action:hover {
+    background: var(--mist);
+    border-color: var(--lilac);
+    transform: translateY(-1px);
+}
+
+/* Лічильники */
+
+.header-action span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Шапка каталогу */
+
+.catalog-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+.catalog-actions .header-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* Планшети */
+
+@media (max-width: 1050px) {
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+}
+
+/* Телефони */
+
+@media (max-width: 600px) {
+    .header-inner {
+        justify-content: center;
+        padding: 12px 10px;
+        gap: 12px;
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+        gap: 5px;
+        margin: 0;
+    }
+
+    .header-action {
+        padding: 8px 9px;
+        font-size: 10px;
+    }
+
+    .main-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
+
+/* ВИПРАВЛЕННЯ МОДАЛЬНОГО ВІКНА ОФОРМЛЕННЯ */
+
+.checkout-modal {
+    z-index: 9999;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 120px 20px 30px;
+    box-sizing: border-box;
+}
+
+/* Саме вікно оформлення */
+.checkout-modal .checkout-content {
+    width: 100%;
+    max-width: 780px;
+    max-height: calc(100vh - 150px);
+    margin: 0 auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Щоб поля та кнопки не виходили за межі вікна */
+.checkout-modal .checkout-content * {
+    box-sizing: border-box;
+}
+
+/* Зручніше прокручування */
+.checkout-modal .checkout-content {
+    scrollbar-width: thin;
+    scrollbar-color: #B7A9D5 #FFF9F2;
+}
+
+/* Для телефонів */
+@media (max-width: 600px) {
+    .checkout-modal {
+        padding: 90px 12px 20px;
+    }
+
+    .checkout-modal .checkout-content {
+        max-height: calc(100vh - 110px);
+        padding: 22px;
+    }
+}
+
+/* ==========================================
+   ОНОВЛЕНА ТАБЛИЦЯ ХАРАКТЕРИСТИК BOOK HEAVEN
+========================================== */
+
+.product-characteristics {
+    width: 100%;
+    margin-top: 35px;
+}
+
+.product-characteristics h2 {
+    margin-bottom: 20px;
+    color: var(--night);
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+}
+
+.characteristics-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(113, 99, 143, 0.18);
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(41, 36, 66, 0.05);
+}
+
+.characteristics-table {
+    width: 100%;
+    min-width: 420px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Комірки таблиці */
+.characteristics-table th,
+.characteristics-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(113, 99, 143, 0.12);
+    font-size: 15px;
+    line-height: 1.5;
+    vertical-align: middle;
+    text-align: left !important;
+}
+
+/* Ліва колонка */
+.characteristics-table th {
+    width: 46%;
+    color: var(--lavender);
+    background: #faf7fd;
+    font-weight: 600;
+}
+
+/* Права колонка */
+.characteristics-table td {
+    width: 54%;
+    color: var(--night);
+    font-weight: 400;
+    background: #fff;
+}
+
+/* Прибирання лінії в останньому рядку */
+.characteristics-table tr:last-child th,
+.characteristics-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Легке виділення рядка при наведенні */
+.characteristics-table tr:hover th,
+.characteristics-table tr:hover td {
+    background: #f5f0fa;
+    transition: background 0.2s ease;
+}
+
+/* Мобільна версія */
+@media (max-width: 600px) {
+    .product-characteristics h2 {
+        font-size: 23px;
+    }
+
+    .characteristics-table {
+        min-width: 380px;
+    }
+
+    .characteristics-table th,
+    .characteristics-table td {
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+.bundle-book {
+    position: relative;
+}
+
+.bundle-badge {
+    display: inline-block;
+    width: fit-content;
+    margin: 10px 0 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #71638F;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+/* ==========================================
+   КНИЖКОВІ НАБОРИ BOOK HEAVEN
+========================================== */
+
+.product-information .eyebrow {
+    display: inline-block;
+    color: var(--lavender);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.product-bundle-label {
+    display: inline-block;
+    background: #f8e5e5;
+    color: #b83232;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.characteristics-table td {
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+}
+
+.characteristics-table th {
+    white-space: normal;
+}
+
+/* Відображення довгого списку книг у комплекті */
+.characteristics-table td {
+    max-width: 450px;
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 600px) {
+    .characteristics-table th,
+    .characteristics-table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .product-information .eyebrow {
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   ФІЛЬТРИ КАТАЛОГУ — BOOK HEAVEN
+========================================= */
+
+/* Загальний вигляд блоків фільтрів */
+.filter-group,
+.filter-section,
+.filter-block {
+    margin-bottom: 22px;
+    padding: 0 12px 16px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Заголовки фільтрів */
+.filter-group h3,
+.filter-section h3,
+.filter-block h3,
+.filter-group h2,
+.filter-section h2,
+.filter-block h2 {
+    background: #e8def0;
+    color: #806b9e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 500;
+    font-style: italic;
+    padding: 17px 15px;
+    margin: 0 -12px 16px;
+    border-radius: 14px;
+}
+
+/* Підписи біля прапорців */
+.filter-group label,
+.filter-section label,
+.filter-block label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #30283b;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 9px 5px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.filter-group label:hover,
+.filter-section label:hover,
+.filter-block label:hover {
+    color: #896da8;
+}
+
+/* Прапорці */
+.format-filter,
+.language-filter,
+.publisher-filter {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    accent-color: #9478b3;
+    cursor: pointer;
+}
+
+/* Поле пошуку автора */
+#author-search {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 17px 16px;
+    border: 1px solid #e5d9ef;
+    border-radius: 15px;
+    background: #fff;
+    color: #30283b;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#author-search:focus {
+    border-color: #a58ac2;
+    box-shadow: 0 0 0 3px rgba(165, 138, 194, 0.15);
+}
+
+#author-search::placeholder {
+    color: #998ba5;
+}
+
+/* Поля ціни */
+#price-min,
+#price-max {
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #e5d9ef;
+    border-radius: 12px;
+    background: #fff;
+    color: #30283b;
+    outline: none;
+}
+
+#price-min:focus,
+#price-max:focus {
+    border-color: #a58ac2;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 600px) {
+    .filter-group h3,
+    .filter-section h3,
+    .filter-block h3,
+    .filter-group h2,
+    .filter-section h2,
+    .filter-block h2 {
+        font-size: 21px;
+    }
+
+    .filter-group label,
+    .filter-section label,
+    .filter-block label {
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   BOOK HEAVEN — ФІНАЛЬНІ СТИЛІ ФІЛЬТРІВ КАТАЛОГУ
+   Дублікати та некоректні вкладені media-блоки прибрано
+===================================================== */
+
+/* Дозволяємо sticky працювати в сітці каталогу */
+.catalog-layout {
+    align-items: start;
+}
+
+/* Закріплена панель фільтрів на комп'ютерах */
+.catalog-layout > .filters {
+    position: sticky;
+    top: 102px;
+    align-self: start;
+
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    max-height: calc(100vh - 122px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    box-sizing: border-box;
+    padding: 22px 18px;
+
+    background: #F3EDF8;
+    border: 1px solid #E5D9EF;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 7px 22px rgba(91, 67, 117, .08);
+
+    scrollbar-width: thin;
+    scrollbar-color: #C5B5D9 transparent;
+}
+
+/* Акуратна смуга прокручування */
+.catalog-layout > .filters::-webkit-scrollbar {
+    width: 5px;
+}
+
+.catalog-layout > .filters::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.catalog-layout > .filters::-webkit-scrollbar-thumb {
+    background: #C5B5D9;
+    border-radius: 10px;
+}
+
+/* Окремі секції */
+.catalog-layout > .filters .filter-section {
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 20px;
+    padding: 0 0 19px;
+    border-bottom: 1px dashed #D4C3E2;
+}
+
+.catalog-layout > .filters .filter-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Заголовки фільтрів */
+.catalog-layout > .filters .filter-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    box-sizing: border-box;
+
+    margin: 0 0 13px;
+    padding: 10px 14px;
+
+    border: 0;
+    border-left: 3px solid #9B88C0;
+    border-radius: 0 13px 13px 0;
+
+    background: linear-gradient(100deg, #E5DCEF, #EEE7F4);
+    color: #80669E;
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.25;
+}
+
+/* Варіанти фільтрів */
+.catalog-layout > .filters .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    width: 100%;
+    min-height: 38px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px 6px;
+
+    color: #352D40;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.catalog-layout > .filters .filter-option:hover {
+    color: #886BA8;
+}
+
+/* Прапорці */
+.catalog-layout > .filters .filter-option input[type="checkbox"] {
+    appearance: auto;
+    -webkit-appearance: checkbox;
+
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    flex: 0 0 20px;
+
+    margin: 0;
+    accent-color: #9478B3;
+    cursor: pointer;
+}
+
+/* Поле пошуку автора */
+.catalog-layout > .filters .filter-search {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    box-sizing: border-box;
+    padding: 14px 16px;
+
+    border: 1px solid #E3D7ED;
+    border-radius: 15px;
+    outline: none;
+
+    background: #FFFFFF;
+    color: #352D40;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+
+    box-shadow: 0 4px 13px rgba(41, 36, 66, .035);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.catalog-layout > .filters .filter-search::placeholder {
+    color: #9A8EAA;
+}
+
+.catalog-layout > .filters .filter-search:focus {
+    border-color: #A99ABB;
+    box-shadow: 0 0 0 4px rgba(183, 169, 213, .17);
+}
+
+/* Поля мінімальної та максимальної ціни */
+.catalog-layout > .filters .price-fields {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.catalog-layout > .filters .price-input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 9px;
+
+    border: 1px solid #E1D6EC;
+    border-radius: 12px;
+    outline: none;
+
+    background: #FFFFFF;
+    color: #39324F;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+}
+
+.catalog-layout > .filters .price-input:focus {
+    border-color: #A99ABB;
+    box-shadow: 0 0 0 3px rgba(183, 169, 213, .15);
+}
+
+.catalog-layout > .filters .price-arrow {
+    flex: 0 0 auto;
+    color: #8B7BA5;
+}
+
+.catalog-layout > .filters .price-caption {
+    margin-top: 10px;
+    color: #8B7BA5;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* Планшети й телефони: панель стає звичайним блоком,
+   а не окремою прокручуваною колонкою */
+@media (max-width: 850px) {
+    .catalog-layout {
+        display: block;
+    }
+
+    .catalog-layout > .filters {
+        position: static;
+        top: auto;
+
+        width: 100%;
+        height: auto;
+        max-height: none;
+        overflow: visible;
+
+        display: flex;
+        flex-direction: column;
+
+        margin: 0;
+        padding: 20px 22px;
+
+        border-radius: 0 0 20px 20px;
+    }
+
+    .catalog-layout > .filters .filter-title {
+        font-size: 21px;
+    }
+}
+
+/* Телефони */
+@media (max-width: 600px) {
+    .catalog-layout > .filters {
+        padding: 18px 16px;
+    }
+
+    .catalog-layout > .filters .filter-section {
+        margin-bottom: 17px;
+        padding-bottom: 16px;
+    }
+
+    .catalog-layout > .filters .filter-title {
+        min-height: 46px;
+        margin-bottom: 11px;
+        padding: 9px 12px;
+        font-size: 20px;
+    }
+
+    .catalog-layout > .filters .filter-option {
+        min-height: 36px;
+        font-size: 14px;
+    }
+
+    .catalog-layout > .filters .filter-search {
+        min-height: 50px;
+    }
+}
+
+/* =========================================
+   BOOK HEAVEN — ВИПРАВЛЕННЯ ОБРІЗАННЯ ФІЛЬТРІВ
+========================================= */
+
+/* Зовнішня панель */
+.catalog-layout > .filters {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: calc(100vh - 110px) !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+/* Кожен розділ фільтра */
+.catalog-layout > .filters .filter-section {
+    display: block !important;
+    position: relative !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+    flex: 0 0 auto !important;
+
+    box-sizing: border-box !important;
+    padding: 0 0 18px !important;
+    margin: 0 0 20px !important;
+}
+
+/* Заголовки */
+.catalog-layout > .filters .filter-title {
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    min-height: 50px !important;
+    height: auto !important;
+
+    box-sizing: border-box !important;
+    margin: 0 0 14px !important;
+    padding: 10px 14px !important;
+
+    white-space: normal !important;
+    overflow: visible !important;
+}
+
+/* Варіанти */
+.catalog-layout > .filters .filter-option {
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    min-height: 38px !important;
+    height: auto !important;
+
+    margin: 5px 0 !important;
+    overflow: visible !important;
+}
+
+/* Пошук автора */
+.catalog-layout > .filters .filter-search {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    height: auto !important;
+
+    box-sizing: border-box !important;
+    padding: 12px 14px !important;
+    overflow: visible !important;
+}
+
+/* Мобільна версія */
+@media (max-width: 650px) {
+    .catalog-layout {
+        display: block !important;
+    }
+
+    .catalog-layout > .filters {
+        position: relative !important;
+        top: auto !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+
+        overflow: visible !important;
+        padding: 18px 16px !important;
+    }
+
+    .catalog-layout > .filters .filter-section {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}
+
+/* Закріплення на комп'ютері */
+@media (min-width: 651px) {
+    .catalog-layout > .filters {
+        position: sticky !important;
+        top: 100px !important;
+        align-self: start !important;
+    }
+/* ==========================================
+   КНОПКА СКИДАННЯ ФІЛЬТРІВ
+========================================== */
+
+.reset-filters-button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px 16px;
+    border: 1px solid #c9b8d9;
+    border-radius: 12px;
+    background: transparent;
+    color: #765b8d;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.reset-filters-button:hover {
+    background: #765b8d;
+    color: #fff;
+    border-color: #765b8d;
+    transform: translateY(-2px);
+}
+
+.reset-filters-button:active {
+    transform: translateY(0);
+}
+
+}
+.feature-section {
+    width: 100%;
+    padding: 35px 5%;
+}
+
+.feature-banner {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.feature-banner img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .feature-banner {
+        height: 200px;
+    }
+}
+
+/* ==========================================
+   ГОЛОВНИЙ БАНЕР — ТЕКСТ І КНОПКИ ПОВЕРХ ФОТО
+========================================== */
+
+.hero.hero-photo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 560px;
+    padding: 70px 6%;
+    overflow: hidden;
+    border-radius: 32px;
+    isolation: isolate;
+}
+
+/* Зображення на весь банер */
+.hero-photo .hero-photo-area {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-photo .hero-photo-area img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Легкий світлий градієнт для читабельності тексту */
+.hero.hero-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(239, 228, 247, 0.97) 0%,
+        rgba(239, 228, 247, 0.88) 35%,
+        rgba(239, 228, 247, 0.35) 65%,
+        rgba(239, 228, 247, 0.05) 100%
+    );
+}
+
+/* Текст поверх картинки */
+.hero-photo .hero-copy {
+    position: relative;
+    z-index: 2;
+    width: 55%;
+    max-width: 650px;
+    padding: 20px 0;
+}
+
+/* Заголовок */
+.hero-photo .hero-copy h1 {
+    max-width: 650px;
+    line-height: 1.08;
+}
+
+/* Опис */
+.hero-photo .hero-copy p {
+    max-width: 520px;
+}
+
+/* Кнопки */
+.hero-photo .hero-buttons {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.hero-photo .hero-buttons a {
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
+    text-decoration: none;
+}
+
+/* Примітка під кнопками */
+.hero-photo .hero-note {
+    position: relative;
+    z-index: 2;
+    margin-top: 28px;
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 768px) {
+    .hero.hero-photo {
+        min-height: 580px;
+        padding: 45px 25px;
+        border-radius: 22px;
+    }
+
+    .hero-photo .hero-copy {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-photo .hero-photo-area img {
+        object-position: 65% center;
+    }
+
+    .hero.hero-photo::before {
+        background: linear-gradient(
+            90deg,
+            rgba(239, 228, 247, 0.96),
+            rgba(239, 228, 247, 0.78)
+        );
+    }
+
+    .hero-photo .hero-copy h1 {
+        font-size: clamp(36px, 9vw, 54px);
+    }
+}
+
+/* ЗБІЛЬШЕНИЙ ТЕКСТ ФУТЕРА */
+.footer-about p,
+.footer-links a,
+.footer-contacts p,
+.footer-contacts a {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.footer-links h3,
+.footer-contacts h3 {
+    font-size: 18px;
+}
+
+.copyright {
+    font-size: 14px;
+}

@@ -447,32 +447,36 @@ function renderProductPage() {
     }
 
 
+       // ==========================================
+    // ПОШУК ТОВАРУ В КНИГАХ І МЕРЧІ
     // ==========================================
-    // ПОШУК ТОВАРУ ЧЕРЕЗ SCRIPT.JS
-    // ==========================================
 
-    // Функція findProduct уже є у твоєму script.js.
-    // Вона шукає товар одночасно в books і merch.
+    const availableBooks =
+        typeof books !== "undefined" && Array.isArray(books)
+            ? books
+            : [];
 
-    if (typeof findProduct !== "function") {
-        console.error("Функцію findProduct не знайдено. Перевір підключення script.js.");
+    const availableMerch =
+        typeof merch !== "undefined" && Array.isArray(merch)
+            ? merch
+            : [];
 
-        container.innerHTML = `
-            <div class="product-not-found">
-                <h2>Не вдалося завантажити товари</h2>
-                <p>Перевір підключення файлів JavaScript у product.html.</p>
-                <a href="catalog.html" class="primary-button">
-                    Повернутися до каталогу
-                </a>
-            </div>
-        `;
-        return;
-    }
+    const allProducts = [
+        ...availableBooks,
+        ...availableMerch
+    ];
 
-    const book = findProduct(productId);
+    const book = allProducts.find(function(item) {
+        return Number(item.id) === productId;
+    });
 
     if (!book) {
-        console.error("Товар не знайдено. ID:", productId);
+        console.error("Товар не знайдено:", {
+            productId: productId,
+            booksCount: availableBooks.length,
+            merchCount: availableMerch.length,
+            currentURL: window.location.href
+        });
 
         container.innerHTML = `
             <div class="product-not-found">

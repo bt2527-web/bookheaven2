@@ -1,3 +1,4 @@
+
 // ==========================================
 // BOOK HEAVEN — СТОРІНКА ОКРЕМОГО ТОВАРУ
 // ==========================================
@@ -443,7 +444,9 @@ function renderProductPage() {
     }
 
 
+    // ==========================================
     // ОТРИМАННЯ ID ТОВАРУ
+    // ==========================================
 
     const params = new URLSearchParams(window.location.search);
     const productId = Number(params.get("id"));
@@ -461,9 +464,25 @@ function renderProductPage() {
     }
 
 
-    // ПОШУК ТОВАРУ
+    // ==========================================
+    // ПОШУК КНИГИ АБО МЕРЧУ
+    // ==========================================
 
-    const book = books.find(function(item) {
+    // Перевіряємо, чи існує масив merch.
+    // typeof не дозволяє отримати помилку,
+    // якщо змінна merch не оголошена в script.js.
+
+    const merchProducts =
+        typeof merch !== "undefined" && Array.isArray(merch)
+            ? merch
+            : [];
+
+    const allProducts = [
+        ...books,
+        ...merchProducts
+    ];
+
+    const book = allProducts.find(function(item) {
         return Number(item.id) === productId;
     });
 
@@ -484,9 +503,16 @@ function renderProductPage() {
     // ВИЗНАЧЕННЯ ТИПУ ТОВАРУ
     // ==========================================
 
-    const isMerch = book.type === "merch";
-    const isEbook = book.type === "ebook";
-    const isBundle = book.isBundle === true;
+    // Мерч визначається за наявністю товару
+    // в окремому масиві merch або за його типом.
+
+    const isMerch =
+        merchProducts.some(function(item) {
+            return Number(item.id) === productId;
+        }) || book.type === "merch";
+
+    const isEbook = !isMerch && book.type === "ebook";
+    const isBundle = !isMerch && book.isBundle === true;
 
     const merchInfo = isMerch
         ? merchProductInfo[book.id]

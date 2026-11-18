@@ -58,7 +58,6 @@ const productPublishers = {
     47: "Wiley-Blackwell",
     48: "Elsevier",
 
-    // КНИЖКОВІ НАБОРИ
     49: "Збірка книжкових видань",
     50: "Видавництво «Школа»",
     51: "Збірка навчальних видань"
@@ -119,7 +118,6 @@ const productYears = {
     47: "2025",
     48: "2025",
 
-    // РОКИ ВИДАННЯ НАБОРІВ
     49: "Різні роки видання",
     50: "Різні роки видання",
     51: "Різні роки видання"
@@ -219,8 +217,6 @@ const bookDescriptions = {
     47: "Навчальний матеріал із ветеринарної паразитології. Розглядає основні групи паразитів тварин, особливості їхнього розвитку та загальні принципи профілактики паразитарних захворювань.",
     48: "Навчальне видання про будову та функції організму свійських тварин. Описує основні системи органів і фізіологічні процеси, важливі для ветеринарної освіти.",
 
-    // КНИЖКОВІ НАБОРИ
-
     49: "Добірка книжок для тих, хто захоплюється рослинами, садівництвом і городництвом. У наборі зібрані матеріали про природу, вирощування рослин, догляд за садом та цікаві факти про рослинний світ. Комплект стане джерелом корисних ідей для початківців і досвідчених садівників.",
 
     50: "Повна серія «Часодії» Наталії Щерби — захоплива фентезійна історія про світ, у якому час має особливу силу. Разом із героями читач вирушить у подорож, сповнену магії, таємниць, пригод і несподіваних відкриттів. До комплекту входять шість основних книг серії.",
@@ -310,7 +306,6 @@ const merchProductInfo = {
 
 // ==========================================
 // ЛОКАЛЬНІ ФОТОГРАФІЇ МЕРЧУ
-// ФАЙЛИ МАЮТЬ БУТИ В ПАПЦІ images/merch/
 // ==========================================
 
 const merchProductImages = {
@@ -431,18 +426,6 @@ function renderProductPage() {
 
     if (!container) return;
 
-    if (typeof books === "undefined" || !Array.isArray(books)) {
-        container.innerHTML = `
-            <div class="product-not-found">
-                <h2>Не вдалося завантажити товари</h2>
-                <p>Перевір підключення js/script.js.</p>
-            </div>
-        `;
-
-        console.error("Масив books не знайдено.");
-        return;
-    }
-
 
     // ==========================================
     // ОТРИМАННЯ ID ТОВАРУ
@@ -465,28 +448,32 @@ function renderProductPage() {
 
 
     // ==========================================
-    // ПОШУК КНИГИ АБО МЕРЧУ
+    // ПОШУК ТОВАРУ ЧЕРЕЗ SCRIPT.JS
     // ==========================================
 
-    // Перевіряємо, чи існує масив merch.
-    // typeof не дозволяє отримати помилку,
-    // якщо змінна merch не оголошена в script.js.
+    // Функція findProduct уже є у твоєму script.js.
+    // Вона шукає товар одночасно в books і merch.
 
-    const merchProducts =
-        typeof merch !== "undefined" && Array.isArray(merch)
-            ? merch
-            : [];
+    if (typeof findProduct !== "function") {
+        console.error("Функцію findProduct не знайдено. Перевір підключення script.js.");
 
-    const allProducts = [
-        ...books,
-        ...merchProducts
-    ];
+        container.innerHTML = `
+            <div class="product-not-found">
+                <h2>Не вдалося завантажити товари</h2>
+                <p>Перевір підключення файлів JavaScript у product.html.</p>
+                <a href="catalog.html" class="primary-button">
+                    Повернутися до каталогу
+                </a>
+            </div>
+        `;
+        return;
+    }
 
-    const book = allProducts.find(function(item) {
-        return Number(item.id) === productId;
-    });
+    const book = findProduct(productId);
 
     if (!book) {
+        console.error("Товар не знайдено. ID:", productId);
+
         container.innerHTML = `
             <div class="product-not-found">
                 <h2>Товар не знайдено</h2>
@@ -503,14 +490,7 @@ function renderProductPage() {
     // ВИЗНАЧЕННЯ ТИПУ ТОВАРУ
     // ==========================================
 
-    // Мерч визначається за наявністю товару
-    // в окремому масиві merch або за його типом.
-
-    const isMerch =
-        merchProducts.some(function(item) {
-            return Number(item.id) === productId;
-        }) || book.type === "merch";
-
+    const isMerch = book.type === "merch";
     const isEbook = !isMerch && book.type === "ebook";
     const isBundle = !isMerch && book.isBundle === true;
 
@@ -548,7 +528,7 @@ function renderProductPage() {
     // ==========================================
 
     const productImage = isMerch
-        ? merchProductImages[book.id]
+        ? (merchProductImages[book.id] || book.image)
         : book.image;
 
 
@@ -562,7 +542,7 @@ function renderProductPage() {
 
         characteristicsHTML += createProductRow(
             "Категорія",
-            merchInfo?.category || "Мерч Book Heaven"
+            merchInfo?.category || book.merchCategory || "Мерч Book Heaven"
         );
 
         characteristicsHTML += createProductRow(

@@ -57,7 +57,6 @@ const productPublishers = {
     46: "Elsevier",
     47: "Wiley-Blackwell",
     48: "Elsevier",
-
     49: "Збірка книжкових видань",
     50: "Видавництво «Школа»",
     51: "Збірка навчальних видань"
@@ -69,55 +68,18 @@ const productPublishers = {
 // ==========================================
 
 const productYears = {
-    1: "2014",
-    2: "2025",
-    3: "2005",
-    4: "2020",
-    5: "2023",
-    6: "2024",
-    7: "2024",
-    8: "2024",
-    9: "2025",
-    10: "2025",
-    11: "2023",
-    12: "2025",
-    13: "2004",
-    14: "2014",
-    15: "2012",
-    16: "2004",
-    17: "2024",
-    18: "2026",
-    19: "2018",
-    20: "2025",
-    21: "2019",
-    22: "2000",
-    23: "2009",
-    24: "2017",
-    25: "2015",
-    26: "2016",
-    27: "2017",
-    28: "2019",
-    29: "2025",
-    30: "2025",
-    31: "2024",
-    32: "2024",
-    33: "2025",
-    34: "2024",
-    35: "2024",
-    36: "2024",
-    37: "2025",
-    38: "2019",
-    39: "2015",
-    40: "2017",
-    41: "2020",
-    42: "2022",
-    43: "2025",
-    44: "2025",
-    45: "2025",
-    46: "2025",
-    47: "2025",
-    48: "2025",
-
+    1: "2014", 2: "2025", 3: "2005", 4: "2020",
+    5: "2023", 6: "2024", 7: "2024", 8: "2024",
+    9: "2025", 10: "2025", 11: "2023", 12: "2025",
+    13: "2004", 14: "2014", 15: "2012", 16: "2004",
+    17: "2024", 18: "2026", 19: "2018", 20: "2025",
+    21: "2019", 22: "2000", 23: "2009", 24: "2017",
+    25: "2015", 26: "2016", 27: "2017", 28: "2019",
+    29: "2025", 30: "2025", 31: "2024", 32: "2024",
+    33: "2025", 34: "2024", 35: "2024", 36: "2024",
+    37: "2025", 38: "2019", 39: "2015", 40: "2017",
+    41: "2020", 42: "2022", 43: "2025", 44: "2025",
+    45: "2025", 46: "2025", 47: "2025", 48: "2025",
     49: "Різні роки видання",
     50: "Різні роки видання",
     51: "Різні роки видання"
@@ -129,12 +91,12 @@ const productYears = {
 // ==========================================
 
 const productPrintSpecs = {
-    1:  { pages: 96, cover: "Тверда", illustrations: "Кольорові", paper: "Офсетний, білий" },
-    2:  { pages: 352, cover: "Тверда", illustrations: "Відсутні", paper: "Офсетний, білий" },
-    5:  { pages: 256, cover: "Тверда", illustrations: "Відсутні", paper: "Офсетний, білий" },
-    7:  { pages: 240, cover: "М'яка", illustrations: "Кольорові", paper: "Офсетний, білий" },
-    8:  { pages: 224, cover: "М'яка", illustrations: "Чорно-білі", paper: "Офсетний, білий" },
-    9:  { pages: 192, cover: "М'яка", illustrations: "Чорно-білі", paper: "Офсетний, білий" },
+    1: { pages: 96, cover: "Тверда", illustrations: "Кольорові", paper: "Офсетний, білий" },
+    2: { pages: 352, cover: "Тверда", illustrations: "Відсутні", paper: "Офсетний, білий" },
+    5: { pages: 256, cover: "Тверда", illustrations: "Відсутні", paper: "Офсетний, білий" },
+    7: { pages: 240, cover: "М'яка", illustrations: "Кольорові", paper: "Офсетний, білий" },
+    8: { pages: 224, cover: "М'яка", illustrations: "Чорно-білі", paper: "Офсетний, білий" },
+    9: { pages: 192, cover: "М'яка", illustrations: "Чорно-білі", paper: "Офсетний, білий" },
     10: { pages: 128, cover: "М'яка", illustrations: "Чорно-білі", paper: "Офсетний, білий" },
     11: { pages: 256, cover: "М'яка", illustrations: "Кольорові", paper: "Офсетний, білий" },
     14: { pages: 160, cover: "Тверда", illustrations: "Чорно-білі", paper: "Офсетний, білий" },
@@ -216,11 +178,8 @@ const bookDescriptions = {
     46: "Навчальне видання, присвячене гістології — науці про тканини організму. Знайомить із будовою клітин і тканин, їхніми функціями та основними методами дослідження.",
     47: "Навчальний матеріал із ветеринарної паразитології. Розглядає основні групи паразитів тварин, особливості їхнього розвитку та загальні принципи профілактики паразитарних захворювань.",
     48: "Навчальне видання про будову та функції організму свійських тварин. Описує основні системи органів і фізіологічні процеси, важливі для ветеринарної освіти.",
-
     49: "Добірка книжок для тих, хто захоплюється рослинами, садівництвом і городництвом. У наборі зібрані матеріали про природу, вирощування рослин, догляд за садом та цікаві факти про рослинний світ. Комплект стане джерелом корисних ідей для початківців і досвідчених садівників.",
-
     50: "Повна серія «Часодії» Наталії Щерби — захоплива фентезійна історія про світ, у якому час має особливу силу. Разом із героями читач вирушить у подорож, сповнену магії, таємниць, пригод і несподіваних відкриттів. До комплекту входять шість основних книг серії.",
-
     51: "Комплект для тих, хто хоче познайомитися з іспанською мовою та літературою. У ньому поєднані художні твори іспанською мовою, навчальні матеріали, граматика та короткі історії для практики читання. Набір допоможе розширювати словниковий запас і поступово розвивати мовні навички."
 };
 
@@ -238,7 +197,6 @@ const merchProductInfo = {
         size: "10 на 5 см",
         manufacturer: "Book Heaven"
     },
-
     53: {
         description: "Набір закладок Book Heaven створений для тих, хто любить читати та дбати про свої книги. Закладки допоможуть позначати улюблені сторінки, важливі уривки й місця, до яких хочеться повернутися.",
         category: "Закладки",
@@ -247,7 +205,6 @@ const merchProductInfo = {
         size: "Набір",
         manufacturer: "Book Heaven"
     },
-
     54: {
         description: "Практичний шопер Book Heaven для книг, навчальних матеріалів і щоденних речей. Зручний аксесуар для прогулянок, навчання та походів до книгарні.",
         category: "Аксесуари",
@@ -256,7 +213,6 @@ const merchProductInfo = {
         size: "Універсальний",
         manufacturer: "Book Heaven"
     },
-
     55: {
         description: "Чашка «Час для читання» — затишний аксесуар для ранкової кави, чаю або вечора з улюбленою книгою. Чудово доповнить домашню читацьку атмосферу.",
         category: "Посуд",
@@ -265,7 +221,6 @@ const merchProductInfo = {
         size: "Стандартний",
         manufacturer: "Book Heaven"
     },
-
     56: {
         description: "Блокнот читача допоможе записувати враження від прочитаного, улюблені цитати, назви книг і власні думки. Зручний помічник для ведення читацького щоденника.",
         category: "Канцелярія",
@@ -274,7 +229,6 @@ const merchProductInfo = {
         size: "Компактний",
         manufacturer: "Book Heaven"
     },
-
     57: {
         description: "Набір книжкових наліпок для прикрашання блокнотів, планерів, листівок і читацьких щоденників. Допоможе додати індивідуальності особистим записам і творчим роботам.",
         category: "Канцелярія",
@@ -283,7 +237,6 @@ const merchProductInfo = {
         size: "Набір",
         manufacturer: "Book Heaven"
     },
-
     58: {
         description: "Читацький планер допоможе планувати читання, записувати список бажаних книг і відстежувати власні читацькі відкриття. Практичний аксесуар для організації книжкових цілей.",
         category: "Канцелярія",
@@ -292,7 +245,6 @@ const merchProductInfo = {
         size: "Компактний",
         manufacturer: "Book Heaven"
     },
-
     59: {
         description: "Подарунковий набір читача — приємний сюрприз для тих, хто не уявляє свого життя без книг. Поєднує книжкові аксесуари в одному наборі та стане гарним подарунком для книголюба.",
         category: "Подарункові набори",
@@ -307,7 +259,6 @@ const merchProductInfo = {
 // ==========================================
 // ЛОКАЛЬНІ ФОТОГРАФІЇ МЕРЧУ
 // ==========================================
-
 
 const merchProductImages = {
     52: "images/zakladka-kvitkova-istoriia.jpg",
@@ -386,14 +337,11 @@ function renderReviews(productId) {
             <article class="review-card">
                 <div class="review-card-header">
                     <strong>${productSafeText(review.name)}</strong>
-
                     <span class="review-stars">
                         ${"★".repeat(rating)}${"☆".repeat(5 - rating)}
                     </span>
                 </div>
-
                 <p>${productSafeText(review.text)}</p>
-
                 <span class="review-date">
                     ${productSafeText(review.date)}
                 </span>
@@ -427,11 +375,6 @@ function renderProductPage() {
 
     if (!container) return;
 
-
-    // ==========================================
-    // ОТРИМАННЯ ID ТОВАРУ
-    // ==========================================
-
     const params = new URLSearchParams(window.location.search);
     const productId = Number(params.get("id"));
 
@@ -448,7 +391,7 @@ function renderProductPage() {
     }
 
 
-       // ==========================================
+    // ==========================================
     // ПОШУК ТОВАРУ В КНИГАХ І МЕРЧІ
     // ==========================================
 
@@ -495,7 +438,10 @@ function renderProductPage() {
     // ВИЗНАЧЕННЯ ТИПУ ТОВАРУ
     // ==========================================
 
-    const isMerch = book.type === "merch";
+    const isMerch = availableMerch.some(function(item) {
+        return Number(item.id) === productId;
+    });
+
     const isEbook = !isMerch && book.type === "ebook";
     const isBundle = !isMerch && book.isBundle === true;
 
@@ -524,7 +470,6 @@ function renderProductPage() {
     };
 
     const language = languages[book.language] || "Українська";
-
     const specs = productPrintSpecs[book.id] || {};
 
 
@@ -583,18 +528,12 @@ function renderProductPage() {
                 ? "Електронна книга"
                 : "Паперова книга";
 
-
-        // ТЕРМІН РЕАЛІЗАЦІЇ
-
         if (!isEbook) {
             characteristicsHTML += createProductRow(
                 "Термін реалізації",
                 "Відправка в 7–28 днів"
             );
         }
-
-
-        // ВИДАВНИЦТВО ТА АВТОР
 
         characteristicsHTML += createProductRow(
             "Видавництво / Виробник",
@@ -606,11 +545,7 @@ function renderProductPage() {
             book.author || "Не зазначено"
         );
 
-
-        // СКЛАД КНИЖКОВОГО НАБОРУ
-
         if (isBundle && Array.isArray(book.bundleBooks)) {
-
             characteristicsHTML += createProductRow(
                 "Кількість книг у наборі",
                 (book.bundleCount || book.bundleBooks.length) + " шт."
@@ -621,9 +556,6 @@ function renderProductPage() {
                 book.bundleBooks.join(" • ")
             );
         }
-
-
-        // ХАРАКТЕРИСТИКИ ЗВИЧАЙНИХ КНИГ
 
         if (!isEbook && !isBundle) {
             characteristicsHTML += createProductRow(
@@ -685,7 +617,6 @@ function renderProductPage() {
                 <del>${oldPrice} грн</del>
                 <strong>${currentPrice} грн</strong>
             </div>
-
             <span class="product-sale-label">АКЦІЯ</span>
         `;
     } else {
@@ -720,13 +651,11 @@ function renderProductPage() {
         <div class="product-main">
 
             <div class="product-image">
-
                 <img
                     src="${productSafeText(productImage || "")}"
                     alt="${productSafeText(book.title)}"
                     onerror="this.style.display='none'; this.parentElement.classList.add('no-image')"
                 >
-
             </div>
 
             <div class="product-information">
@@ -745,7 +674,6 @@ function renderProductPage() {
 
                 <p class="product-author">
                     ${isMerch ? "Виробник:" : "Автор:"}
-
                     <strong>
                         ${productSafeText(
                             isMerch
@@ -756,33 +684,23 @@ function renderProductPage() {
                 </p>
 
                 <div class="product-description">
-
                     <h2>${isMerch ? "Про товар" : "Про книгу"}</h2>
-
                     <p>${productSafeText(description)}</p>
-
                 </div>
 
                 <div class="product-characteristics">
-
                     <h2>Характеристики</h2>
 
                     <div class="characteristics-table-wrapper">
-
                         <table class="characteristics-table">
-
                             <tbody>
                                 ${characteristicsHTML}
                             </tbody>
-
                         </table>
-
                     </div>
-
                 </div>
 
                 <div class="product-buy">
-
                     <div class="product-price-area">
                         ${priceHTML}
                     </div>
@@ -794,11 +712,9 @@ function renderProductPage() {
                     >
                         Додати до кошика
                     </button>
-
                 </div>
 
             </div>
-
         </div>
     `;
 
@@ -895,3 +811,4 @@ function renderProductPage() {
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", renderProductPage);
+

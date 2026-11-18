@@ -3635,3 +3635,450 @@ button { cursor: pointer; }
 .copyright {
     font-size: 14px;
 }
+
+/* ==========================================
+   ОСОБИСТИЙ КАБІНЕТ BOOK HEAVEN
+========================================== */
+
+/* Основний блок кабінету */
+
+.account-welcome {
+    text-align: center;
+    width: 100%;
+}
+
+.account-welcome > h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 29px;
+    color: var(--night);
+}
+
+.account-welcome > p {
+    max-width: 520px;
+    margin: 12px auto 25px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Вкладки */
+
+.account-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 30px 0 25px;
+    padding: 6px;
+    background: #F5F0F8;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+}
+
+.account-tab {
+    min-height: 45px;
+    padding: 11px 15px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.account-tab:hover {
+    color: var(--lavender);
+    background: rgba(255,255,255,.65);
+}
+
+.account-tab.active {
+    background: #fff;
+    color: var(--lavender);
+    box-shadow: 0 3px 12px rgba(41,36,66,.08);
+}
+
+/* Панелі кабінету */
+
+.account-panel {
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: #FFFCFA;
+    text-align: left;
+    animation: accountPanelAppear .3s ease;
+}
+
+.account-panel[hidden] {
+    display: none !important;
+}
+
+@keyframes accountPanelAppear {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовки панелей */
+
+.account-panel-heading {
+    margin-bottom: 23px;
+}
+
+.account-panel-heading h3 {
+    margin: 0 0 7px;
+    color: var(--night);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 23px;
+}
+
+.account-panel-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* Сітка особистих даних */
+
+.account-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+    margin-bottom: 22px;
+}
+
+.account-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.account-field-full {
+    grid-column: 1 / -1;
+}
+
+.account-field label {
+    color: var(--night);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.account-field input {
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: var(--night);
+    font-family: inherit;
+    font-size: 12px;
+    transition: .25s ease;
+}
+
+.account-field input:focus {
+    border-color: var(--lilac);
+    box-shadow: 0 0 0 3px rgba(183,169,213,.16);
+}
+
+.account-field input::placeholder {
+    color: #B2AABA;
+}
+
+.account-field input[readonly] {
+    background: #F2EEF5;
+    color: var(--muted);
+    cursor: not-allowed;
+}
+
+/* Кнопка збереження */
+
+#account-profile-form .primary-button {
+    width: 100%;
+    min-height: 46px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.account-save-message {
+    min-height: 17px;
+    margin: 12px 0 0;
+    color: #64866D;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ==========================================
+   МОЇ ЗАМОВЛЕННЯ
+========================================== */
+
+.account-orders-empty {
+    padding: 35px 15px;
+    border: 1px dashed rgba(113,99,143,.25);
+    border-radius: 14px;
+    background: #fff;
+    text-align: center;
+}
+
+.account-empty-icon {
+    margin-bottom: 12px;
+    color: var(--lilac);
+    font-size: 43px;
+}
+
+.account-orders-empty h4 {
+    margin: 0 0 10px;
+    color: var(--night);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 20px;
+}
+
+.account-orders-empty p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.account-orders-empty .primary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* Картка замовлення */
+
+.account-order-card {
+    margin-bottom: 16px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    transition: .25s ease;
+}
+
+.account-order-card:last-child {
+    margin-bottom: 0;
+}
+
+.account-order-card:hover {
+    border-color: var(--lilac);
+    box-shadow: 0 8px 22px rgba(41,36,66,.06);
+}
+
+/* Верхня частина замовлення */
+
+.account-order-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.account-order-label {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.account-order-top h4 {
+    margin: 5px 0 0;
+    color: var(--night);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 19px;
+}
+
+.account-order-status {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 30px;
+    background: #EDF3EA;
+    color: #64866D;
+    font-size: 9px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.account-order-date {
+    margin: 0 0 15px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* Товари в замовленні */
+
+.account-order-products {
+    padding: 13px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.account-order-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 7px 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.account-order-product strong {
+    flex-shrink: 0;
+    color: var(--night);
+    font-size: 11px;
+}
+
+.account-order-old {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* Підсумок замовлення */
+
+.account-order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.account-order-bottom strong {
+    color: var(--lavender);
+    font-size: 16px;
+}
+
+/* Нижня частина кабінету */
+
+.account-dashboard-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    margin-top: 24px;
+}
+
+.account-catalog-link {
+    color: var(--lavender);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.account-catalog-link:hover {
+    color: var(--night);
+}
+
+.account-dashboard-bottom .account-logout {
+    margin: 0;
+}
+
+/* ==========================================
+   АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ
+========================================== */
+
+@media (max-width: 800px) {
+    .account-welcome {
+        width: 100%;
+    }
+
+    .account-panel {
+        padding: 22px;
+    }
+}
+
+/* ==========================================
+   АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ
+========================================== */
+
+@media (max-width: 550px) {
+
+    .account-tabs {
+        gap: 5px;
+        margin: 22px 0;
+    }
+
+    .account-tab {
+        padding: 10px 5px;
+        font-size: 10px;
+    }
+
+    .account-panel {
+        padding: 17px 13px;
+    }
+
+    .account-panel-heading h3 {
+        font-size: 21px;
+    }
+
+    .account-profile-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .account-field-full {
+        grid-column: auto;
+    }
+
+    .account-field input {
+        min-height: 42px;
+    }
+
+    .account-order-card {
+        padding: 15px 12px;
+    }
+
+    .account-order-top h4 {
+        font-size: 17px;
+    }
+
+    .account-order-status {
+        padding: 6px 8px;
+        font-size: 8px;
+    }
+
+    .account-order-product {
+        font-size: 10px;
+    }
+
+    .account-order-product strong {
+        font-size: 10px;
+    }
+
+    .account-order-bottom strong {
+        font-size: 14px;
+    }
+
+    .account-welcome > h2 {
+        font-size: 25px;
+    }
+
+    .account-dashboard-bottom {
+        margin-top: 20px;
+    }
+}

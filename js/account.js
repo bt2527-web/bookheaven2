@@ -369,7 +369,7 @@ profileForm.addEventListener("submit", function(event) {
     const message = document.getElementById("profile-save-message");
 
     message.textContent = "✓ Дані успішно збережено!";
-    
+
     setTimeout(function() {
         message.textContent = "";
     }, 3000);
@@ -542,8 +542,17 @@ document.getElementById("account-logout").addEventListener(
 // ==========================================
 
 userButton.addEventListener("click", function() {
-    if (getCurrentUser()) {
+    const user = getCurrentUser();
+
+    if (user) {
+        // НЕ ВИХОДИМО З АКАУНТА!
         showAccountTab("profile");
+
+        document.getElementById("account-welcome").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
     } else {
         showLoginForm();
 

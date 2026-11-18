@@ -5,6 +5,22 @@
 
 
 // ==========================================
+// ФОТОГРАФІЇ МЕРЧУ
+// ==========================================
+
+const cartMerchImages = {
+    52: "images/zakladka-kvitkova-istoriia.jpg",
+    53: "images/nabir-zakladok.jpg",
+    54: "images/shoper-book-heaven.jpg",
+    55: "images/chashka-chas-dlia-chytannia.jpg",
+    56: "images/bloknot-chytacha.jpg",
+    57: "images/knyzhkovi-nalipky.jpg",
+    58: "images/chytatskyi-planer.jpg",
+    59: "images/podarunkovyi-nabir.jpg"
+};
+
+
+// ==========================================
 // ПОШУК ТОВАРУ СЕРЕД КНИГ І МЕРЧУ
 // ==========================================
 
@@ -26,6 +42,25 @@ function findCartProduct(id) {
 
 function getCartQuantity(id) {
     return cart.filter(item => Number(item) === Number(id)).length;
+}
+
+
+// ==========================================
+// БЕЗПЕЧНЕ ВІДОБРАЖЕННЯ ТЕКСТУ
+// ==========================================
+
+function safeCartText(value) {
+    if (typeof safeText === "function") {
+        return safeText(value ?? "");
+    }
+
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[char]);
 }
 
 
@@ -84,6 +119,10 @@ function renderCartPage() {
         total += subtotal;
         totalCount += quantity;
 
+        // ВИЗНАЧАЄМО ФОТОГРАФІЮ ТОВАРУ
+
+        const productImage = cartMerchImages[id] || product.image || "";
+
         const priceHTML = product.salePrice
             ? `
                 <div class="cart-product-prices">
@@ -95,15 +134,18 @@ function renderCartPage() {
 
         return `
             <article class="cart-page-item">
+
                 <div class="cart-product-image">
-                    <img src="${safeText(product.image)}"
-                         alt="${safeText(product.title)}"
-                         onerror="this.style.display='none'">
+                    <img
+                        src="${safeCartText(productImage)}"
+                        alt="${safeCartText(product.title)}"
+                        onerror="this.style.display='none'"
+                    >
                 </div>
 
                 <div class="cart-product-info">
-                    <h3>${safeText(product.title)}</h3>
-                    <p>${safeText(product.author || "Book Heaven")}</p>
+                    <h3>${safeCartText(product.title)}</h3>
+                    <p>${safeCartText(product.author || "Book Heaven")}</p>
 
                     ${priceHTML}
 
@@ -128,6 +170,7 @@ function renderCartPage() {
                         Видалити
                     </button>
                 </div>
+
             </article>
         `;
     }).join("");
@@ -210,8 +253,6 @@ function submitOrder(event) {
         return;
     }
 
-    // ФОРМУЄМО СПИСОК ТОВАРІВ ІЗ КОШИКА
-
     const orderItems = [...new Set(cart.map(Number))].map(id => {
         const product = findCartProduct(id);
 
@@ -227,27 +268,22 @@ function submitOrder(event) {
             id: id,
             title: product.title,
             author: product.author || "Book Heaven",
+            image: cartMerchImages[id] || product.image || "",
             quantity: quantity,
             price: price,
             subtotal: price * quantity
         };
     });
 
-    // ПЕРЕВІРЯЄМО, ЧИ ВСІ ТОВАРИ ЗНАЙДЕНО
-
     if (orderItems.some(item => item === null)) {
         alert("Не вдалося знайти один із товарів. Онови кошик і спробуй ще раз.");
         return;
     }
 
-    // ОБЧИСЛЮЄМО ЗАГАЛЬНУ СУМУ
-
     const total = orderItems.reduce(
         (sum, item) => sum + item.subtotal,
         0
     );
-
-    // СТВОРЮЄМО ЗАМОВЛЕННЯ
 
     const order = {
         orderNumber: Date.now(),
@@ -263,23 +299,12 @@ function submitOrder(event) {
         street: document.getElementById("street").value.trim(),
         comment: document.getElementById("comment").value.trim(),
 
-        // ЗБЕРІГАЄМО ID ТОВАРІВ ДЛЯ СУМІСНОСТІ
         books: [...cart],
-
-        // ПОВНА ІНФОРМАЦІЯ ПРО ТОВАРИ
         items: orderItems,
-
-        // ЗАГАЛЬНА СУМА
         total: total,
-
-        // СТАТУС ЗАМОВЛЕННЯ
         status: "Оформлено",
-
-        // ДАТА ОФОРМЛЕННЯ
         date: new Date().toLocaleString("uk-UA")
     };
-
-    // ЗБЕРЕЖЕННЯ ЗАМОВЛЕННЯ
 
     let orders = [];
 
@@ -302,16 +327,10 @@ function submitOrder(event) {
         JSON.stringify(orders)
     );
 
-    // ОЧИЩЕННЯ КОШИКА
-
     cart = [];
     saveCart();
 
-    // ЗАКРИТТЯ ФОРМИ
-
     closeCheckout();
-
-    // ПОВІДОМЛЕННЯ ПРО УСПІХ
 
     document.querySelector(".cart-layout").hidden = true;
 
@@ -368,11 +387,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ВІДОБРАЖЕННЯ КОШИКА
-
     renderCartPage();
-
-    // ЗАКРИТТЯ МОДАЛЬНОГО ВІКНА ПРИ НАТИСКАННІ ПОЗА НИМ
 
     const checkoutModal = document.getElementById("checkout-modal");
 
@@ -384,4 +399,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-

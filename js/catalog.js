@@ -3,7 +3,6 @@
 // КАТАЛОГ BOOK HEAVEN: КНИГИ ТА МЕРЧ
 // ==========================================
 
-// ДАНІ ДЛЯ ФІЛЬТРАЦІЇ КНИГ
 
 // ==========================================
 // КАТЕГОРІЇ ТА ВИДАВНИЦТВА КНИГ
@@ -81,6 +80,23 @@ const merchDescriptions = {
 
 
 // ==========================================
+// ФОТОГРАФІЇ МЕРЧУ
+// УСІ ФОТО ЗБЕРІГАЮТЬСЯ В ПАПЦІ images/
+// ==========================================
+
+const catalogMerchImages = {
+    52: "images/zakladka-kvitkova-istoriia.jpg",
+    53: "images/nabir-zakladok.jpg",
+    54: "images/shoper-book-heaven.jpg",
+    55: "images/chashka-chas-dlia-chytannia.jpg",
+    56: "images/bloknot-chytacha.jpg",
+    57: "images/knyzhkovi-nalipky.jpg",
+    58: "images/chytatskyi-planer.jpg",
+    59: "images/podarunkovyi-nabir.jpg"
+};
+
+
+// ==========================================
 // ОКРЕМИЙ МАСИВ МЕРЧУ
 // ==========================================
 
@@ -140,36 +156,26 @@ function openCatalogBook(id) {
 
 function resetCatalogFilters() {
 
-    // Скидаємо прапорці фільтрів
     document.querySelectorAll(
         ".publisher-filter, .language-filter"
     ).forEach(input => {
         input.checked = false;
     });
 
-    // Очищаємо пошук за автором
     const authorInput = document.getElementById("author-search");
-    if (authorInput) {
-        authorInput.value = "";
-    }
+    if (authorInput) authorInput.value = "";
 
-    // Очищаємо пошук за назвою
     const searchInput = document.getElementById("catalog-search");
-    if (searchInput) {
-        searchInput.value = "";
-    }
+    if (searchInput) searchInput.value = "";
 
-    // Скидаємо ціну
     const minInput = document.getElementById("price-min");
     const maxInput = document.getElementById("price-max");
 
     if (minInput) minInput.value = "";
     if (maxInput) maxInput.value = "";
 
-    // Повертаємо категорію "Усі"
     activeCategory = "all";
 
-    // Оновлюємо активну вкладку
     if (activeProductType === "books") {
         updateActiveCategoryTab("all");
     } else {
@@ -242,8 +248,19 @@ function renderMerchCard(product) {
         typeof favorites !== "undefined" &&
         favorites.includes(id);
 
+    const productImage =
+        catalogMerchImages[id] || product.image || "";
+
     return `
         <article class="catalog-book merch-product">
+
+            <a href="product.html?id=${id}" class="product-card-link">
+                <img
+                    src="${escapeCatalogText(productImage)}"
+                    alt="${escapeCatalogText(product.title)}"
+                    onerror="this.style.display='none'"
+                >
+            </a>
 
             <h3>
                 <a href="product.html?id=${id}" class="product-card-link">
@@ -377,15 +394,11 @@ function getFilteredBooks() {
             publisher: ""
         };
 
-        // Визначаємо формат книги
         const isEbook = book.type === "ebook";
 
         const isForeignLiterature = meta.category === "foreign";
         const isForeignEducation = meta.education === true;
 
-        // Визначаємо відповідність категорії
-        // Електронні книги мають окрему вкладку,
-        // але також залишаються у своїх тематичних категоріях.
         const matchesCategory =
             activeCategory === "all" ||
             (
@@ -656,7 +669,6 @@ function initializeCatalogFilters() {
         control.addEventListener("change", renderCatalog);
     });
 
-    // Кнопка скидання фільтрів
     const resetButton = document.getElementById("reset-filters");
 
     if (resetButton) {

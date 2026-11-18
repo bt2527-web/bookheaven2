@@ -308,15 +308,16 @@ const merchProductInfo = {
 // ЛОКАЛЬНІ ФОТОГРАФІЇ МЕРЧУ
 // ==========================================
 
+
 const merchProductImages = {
-    52: "images/merch/zakladka-kvitkova-istoriia.jpg",
-    53: "images/merch/nabir-zakladok.jpg",
-    54: "images/merch/shoper-book-heaven.jpg",
-    55: "images/merch/chashka-chas-dlia-chytannia.jpg",
-    56: "images/merch/bloknot-chytacha.jpg",
-    57: "images/merch/knyzhkovi-nalipky.jpg",
-    58: "images/merch/chytatskyi-planer.jpg",
-    59: "images/merch/podarunkovyi-nabir.jpg"
+    52: "images/zakladka-kvitkova-istoriia.jpg",
+    53: "images/nabir-zakladok.jpg",
+    54: "images/shoper-book-heaven.jpg",
+    55: "images/chashka-chas-dlia-chytannia.jpg",
+    56: "images/bloknot-chytacha.jpg",
+    57: "images/knyzhkovi-nalipky.jpg",
+    58: "images/chytatskyi-planer.jpg",
+    59: "images/podarunkovyi-nabir.jpg"
 };
 
 

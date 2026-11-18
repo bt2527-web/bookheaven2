@@ -40,7 +40,6 @@
                 </button>
 
             </div>
-
         </div>
     </header>
 
@@ -48,21 +47,6 @@
     <main class="catalog-layout">
 
         <aside class="filters">
-
-            <section class="filter-section">
-                <span class="filter-title">Формат книги</span>
-
-                <label class="filter-option">
-                    <input type="checkbox" class="format-filter" value="paper">
-                    Паперова книга
-                </label>
-
-                <label class="filter-option">
-                    <input type="checkbox" class="format-filter" value="ebook">
-                    Електронна книга
-                </label>
-            </section>
-
 
             <section class="filter-section">
                 <span class="filter-title">Автор</span>
@@ -170,7 +154,6 @@
             </section>
 
 
-            <!-- КНОПКА СКИДАННЯ ФІЛЬТРІВ -->
             <button type="button" id="reset-filters" class="reset-filters-button">
                 ↻ Скинути фільтри
             </button>
@@ -207,6 +190,10 @@
                     Книжкові набори
                 </button>
 
+                <button class="category-tab" data-category="ebook">
+                    Електронні книги
+                </button>
+
                 <button class="category-tab" data-category="merch">
                     Мерч
                 </button>
@@ -228,33 +215,27 @@
     </main>
 
 
-    
+    <form id="register-form" onsubmit="registerUser(event)" hidden>
 
+        <label for="register-name">Ім'я</label>
+        <input id="register-name" type="text" required>
 
-            <form id="register-form" onsubmit="registerUser(event)" hidden>
+        <label for="register-email">Електронна пошта</label>
+        <input id="register-email" type="email" required>
 
-                <label for="register-name">Ім'я</label>
-                <input id="register-name" type="text" required>
+        <label for="register-password">Пароль</label>
+        <input id="register-password" type="password" required>
 
-                <label for="register-email">Електронна пошта</label>
-                <input id="register-email" type="email" required>
+        <button type="submit" class="primary-button">
+            Зареєструватися
+        </button>
 
-                <label for="register-password">Пароль</label>
-                <input id="register-password" type="password" required>
+    </form>
 
-                <button type="submit" class="primary-button">
-                    Зареєструватися
-                </button>
-
-            </form>
-
-            <p class="form-switch">
-                Ще немає акаунта?
-                <button type="button" onclick="showRegister()">Реєстрація</button>
-            </p>
-
-        </div>
-    </div>
+    <p class="form-switch">
+        Ще немає акаунта?
+        <button type="button" onclick="showRegister()">Реєстрація</button>
+    </p>
 
 
     <div id="site-footer"></div>

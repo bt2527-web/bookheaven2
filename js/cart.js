@@ -1,7 +1,13 @@
 
+// ==========================================
 // СТОРІНКА КОШИКА BOOK HEAVEN
+// ==========================================
 
+
+// ==========================================
 // ПОШУК ТОВАРУ СЕРЕД КНИГ І МЕРЧУ
+// ==========================================
+
 function findCartProduct(id) {
     const productId = Number(id);
 
@@ -13,12 +19,20 @@ function findCartProduct(id) {
     return allProducts.find(item => Number(item.id) === productId);
 }
 
+
+// ==========================================
 // ОТРИМАННЯ КІЛЬКОСТІ ТОВАРУ
+// ==========================================
+
 function getCartQuantity(id) {
     return cart.filter(item => Number(item) === Number(id)).length;
 }
 
+
+// ==========================================
 // ВІДОБРАЖЕННЯ КОШИКА
+// ==========================================
+
 function renderCartPage() {
     const container = document.getElementById("cart-page-items");
     const totalElement = document.getElementById("cart-page-total");
@@ -62,7 +76,7 @@ function renderCartPage() {
         const quantity = getCartQuantity(id);
 
         const price = typeof getBookPrice === "function"
-            ? getBookPrice(product)
+            ? Number(getBookPrice(product))
             : Number(product.salePrice || product.price || 0);
 
         const subtotal = price * quantity;
@@ -122,7 +136,11 @@ function renderCartPage() {
     countElement.textContent = totalCount;
 }
 
+
+// ==========================================
 // ЗМІНА КІЛЬКОСТІ ТОВАРУ
+// ==========================================
+
 function changeCartQuantity(id, change) {
     const productId = Number(id);
 
@@ -140,7 +158,11 @@ function changeCartQuantity(id, change) {
     renderCartPage();
 }
 
+
+// ==========================================
 // ПОВНЕ ВИДАЛЕННЯ ТОВАРУ
+// ==========================================
+
 function deleteCartItem(id) {
     const productId = Number(id);
 
@@ -150,7 +172,11 @@ function deleteCartItem(id) {
     renderCartPage();
 }
 
+
+// ==========================================
 // ВІДКРИТТЯ ФОРМИ ОФОРМЛЕННЯ
+// ==========================================
+
 function openCheckout() {
     if (cart.length === 0) {
         alert("Спочатку додай до кошика хоча б один товар.");
@@ -160,12 +186,20 @@ function openCheckout() {
     document.getElementById("checkout-modal").classList.add("open");
 }
 
+
+// ==========================================
 // ЗАКРИТТЯ ФОРМИ
+// ==========================================
+
 function closeCheckout() {
     document.getElementById("checkout-modal").classList.remove("open");
 }
 
+
+// ==========================================
 // ПІДТВЕРДЖЕННЯ ЗАМОВЛЕННЯ
+// ==========================================
+
 function submitOrder(event) {
     event.preventDefault();
 
@@ -176,41 +210,125 @@ function submitOrder(event) {
         return;
     }
 
+    // ФОРМУЄМО СПИСОК ТОВАРІВ ІЗ КОШИКА
+
+    const orderItems = [...new Set(cart.map(Number))].map(id => {
+        const product = findCartProduct(id);
+
+        if (!product) return null;
+
+        const quantity = getCartQuantity(id);
+
+        const price = typeof getBookPrice === "function"
+            ? Number(getBookPrice(product))
+            : Number(product.salePrice || product.price || 0);
+
+        return {
+            id: id,
+            title: product.title,
+            author: product.author || "Book Heaven",
+            quantity: quantity,
+            price: price,
+            subtotal: price * quantity
+        };
+    });
+
+    // ПЕРЕВІРЯЄМО, ЧИ ВСІ ТОВАРИ ЗНАЙДЕНО
+
+    if (orderItems.some(item => item === null)) {
+        alert("Не вдалося знайти один із товарів. Онови кошик і спробуй ще раз.");
+        return;
+    }
+
+    // ОБЧИСЛЮЄМО ЗАГАЛЬНУ СУМУ
+
+    const total = orderItems.reduce(
+        (sum, item) => sum + item.subtotal,
+        0
+    );
+
+    // СТВОРЮЄМО ЗАМОВЛЕННЯ
+
     const order = {
+        orderNumber: Date.now(),
+
         firstName: document.getElementById("first-name").value.trim(),
         lastName: document.getElementById("last-name").value.trim(),
         phone: document.getElementById("phone").value.trim(),
-        email: document.getElementById("email").value.trim(),
+
+        email: document.getElementById("email").value.trim().toLowerCase(),
+
         city: document.getElementById("city").value.trim(),
         postalCode: document.getElementById("postal-code").value.trim(),
         street: document.getElementById("street").value.trim(),
         comment: document.getElementById("comment").value.trim(),
+
+        // ЗБЕРІГАЄМО ID ТОВАРІВ ДЛЯ СУМІСНОСТІ
         books: [...cart],
+
+        // ПОВНА ІНФОРМАЦІЯ ПРО ТОВАРИ
+        items: orderItems,
+
+        // ЗАГАЛЬНА СУМА
+        total: total,
+
+        // СТАТУС ЗАМОВЛЕННЯ
+        status: "Оформлено",
+
+        // ДАТА ОФОРМЛЕННЯ
         date: new Date().toLocaleString("uk-UA")
     };
 
-    // ЗБЕРЕЖЕННЯ ДЕМОЗАМОВЛЕННЯ У БРАУЗЕРІ
-    const orders = JSON.parse(localStorage.getItem("bookspace-orders") || "[]");
+    // ЗБЕРЕЖЕННЯ ЗАМОВЛЕННЯ
+
+    let orders = [];
+
+    try {
+        orders = JSON.parse(
+            localStorage.getItem("bookspace-orders") || "[]"
+        );
+
+        if (!Array.isArray(orders)) {
+            orders = [];
+        }
+    } catch {
+        orders = [];
+    }
+
     orders.push(order);
-    localStorage.setItem("bookspace-orders", JSON.stringify(orders));
+
+    localStorage.setItem(
+        "bookspace-orders",
+        JSON.stringify(orders)
+    );
 
     // ОЧИЩЕННЯ КОШИКА
+
     cart = [];
     saveCart();
 
     // ЗАКРИТТЯ ФОРМИ
+
     closeCheckout();
 
     // ПОВІДОМЛЕННЯ ПРО УСПІХ
+
     document.querySelector(".cart-layout").hidden = true;
 
     const success = document.getElementById("order-success");
     success.hidden = false;
 
-    success.scrollIntoView({ behavior: "smooth", block: "center" });
+    success.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 }
 
+
+// ==========================================
 // УКРАЇНСЬКІ ПОВІДОМЛЕННЯ ДЛЯ ОБОВ'ЯЗКОВИХ ПОЛІВ
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector("#checkout-modal form");
 
@@ -223,7 +341,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             field.addEventListener("invalid", function() {
                 if (field.validity.valueMissing) {
-                    field.setCustomValidity("Будь ласка, заповніть це поле.");
+                    field.setCustomValidity(
+                        "Будь ласка, заповніть це поле."
+                    );
                 } else if (
                     field.validity.typeMismatch &&
                     field.type === "email"
@@ -248,7 +368,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // ВІДОБРАЖЕННЯ КОШИКА
+
     renderCartPage();
+
+    // ЗАКРИТТЯ МОДАЛЬНОГО ВІКНА ПРИ НАТИСКАННІ ПОЗА НИМ
 
     const checkoutModal = document.getElementById("checkout-modal");
 

@@ -53,7 +53,7 @@ const books = [
     {id:44,title:"Сад і город: практичний довідник",author:"Навчальне видання",price:140,type:"ebook",language:"uk",image:"images/garden-guide.jpg"},
     {id:45,title:"Домашні тварини: догляд та утримання",author:"Навчальне видання",price:150,type:"ebook",language:"uk",image:"images/pets-care.jpg"},
     {id:46,title:"Основи гістології",author:"Навчальне видання",price:230,type:"ebook",language:"uk",image:"images/histology.jpg"},
-    {id:47,title:"Ветеринарна паразитологія",author:"Навчальне видання",price:260,type:"ebook",language:"uk",image:"images/veterinary-parasites.jpg"},
+    {id:47,title:"Ветеринарна паразитологія",author:"Єрохіна.О.M",price:260,type:"ebook",language:"uk",image:"images/veterinary-parasites.jpg"},
     {id:48,title:"Анатомія та фізіологія свійських тварин",author:"Навчальне видання",price:220,type:"ebook",language:"uk",image:"images/animal-anatomy.jpg"},
 
     {

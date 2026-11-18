@@ -4,6 +4,11 @@
 // ==========================================
 
 // ДАНІ ДЛЯ ФІЛЬТРАЦІЇ КНИГ
+
+// ==========================================
+// КАТЕГОРІЇ ТА ВИДАВНИЦТВА КНИГ
+// ==========================================
+
 const catalogMeta = {
     1: { category: "children", publisher: "А-БА-БА-ГА-ЛА-МА-ГА" },
     2: { category: "fiction", publisher: "КСД" },
@@ -135,9 +140,9 @@ function openCatalogBook(id) {
 
 function resetCatalogFilters() {
 
-    // Скидаємо всі прапорці фільтрів
+    // Скидаємо прапорці фільтрів
     document.querySelectorAll(
-        ".format-filter, .publisher-filter, .language-filter"
+        ".publisher-filter, .language-filter"
     ).forEach(input => {
         input.checked = false;
     });
@@ -171,7 +176,6 @@ function resetCatalogFilters() {
         updateActiveCategoryTab("merch");
     }
 
-    // Повторно відображаємо каталог
     renderCatalog();
 }
 
@@ -215,7 +219,6 @@ function updateBookFilters() {
         const text = section.textContent.toLowerCase();
 
         const isBookFilter =
-            text.includes("формат") ||
             text.includes("автор") ||
             text.includes("мова") ||
             text.includes("видавництво");
@@ -365,7 +368,6 @@ function getFilteredBooks() {
         ? Number(maxInput.value)
         : Infinity;
 
-    const selectedFormats = getSelectedValues("format-filter");
     const selectedPublishers = getSelectedValues("publisher-filter");
     const selectedLanguages = getSelectedValues("language-filter");
 
@@ -375,21 +377,33 @@ function getFilteredBooks() {
             publisher: ""
         };
 
+        // Визначаємо формат книги
         const isEbook = book.type === "ebook";
-        const format = isEbook ? "ebook" : "paper";
 
         const isForeignLiterature = meta.category === "foreign";
         const isForeignEducation = meta.education === true;
 
+        // Визначаємо відповідність категорії
+        // Електронні книги мають окрему вкладку,
+        // але також залишаються у своїх тематичних категоріях.
         const matchesCategory =
             activeCategory === "all" ||
-            meta.category === activeCategory ||
-            (activeCategory === "sets" && meta.isSet === true) ||
-            (activeCategory === "education" && isForeignEducation) ||
             (
-                activeCategory === "fiction" &&
-                isForeignLiterature &&
-                !isForeignEducation
+                activeCategory === "ebook" &&
+                isEbook
+            ) ||
+            (
+                activeCategory !== "ebook" &&
+                (
+                    meta.category === activeCategory ||
+                    (activeCategory === "sets" && meta.isSet === true) ||
+                    (activeCategory === "education" && isForeignEducation) ||
+                    (
+                        activeCategory === "fiction" &&
+                        isForeignLiterature &&
+                        !isForeignEducation
+                    )
+                )
             );
 
         const matchesAuthor =
@@ -399,10 +413,6 @@ function getFilteredBooks() {
             !searchText ||
             book.title.toLowerCase().includes(searchText) ||
             (book.author || "").toLowerCase().includes(searchText);
-
-        const matchesFormat =
-            selectedFormats.length === 0 ||
-            selectedFormats.includes(format);
 
         const matchesPublisher =
             selectedPublishers.length === 0 ||
@@ -421,7 +431,6 @@ function getFilteredBooks() {
         return matchesCategory &&
             matchesAuthor &&
             matchesSearch &&
-            matchesFormat &&
             matchesPublisher &&
             matchesPrice &&
             matchesLanguage;
@@ -641,7 +650,7 @@ function initializeCategoryTabs() {
 
 function initializeCatalogFilters() {
     document.querySelectorAll(
-        ".format-filter, .publisher-filter, .language-filter, #author-search, #price-min, #price-max, #catalog-search"
+        ".publisher-filter, .language-filter, #author-search, #price-min, #price-max, #catalog-search"
     ).forEach(control => {
         control.addEventListener("input", renderCatalog);
         control.addEventListener("change", renderCatalog);
